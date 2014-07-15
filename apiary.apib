@@ -583,7 +583,7 @@ The results will contained those tags that were given at last by any user, indep
                         {
                             "skosPrefLabel": [
                                 {
-                                    "value": "Omega <3 <Fettsäuren",
+                                    "value": "Omega 3 Fettsäuren",
                                     "language": "de"
                                 }
                             ],
@@ -1278,7 +1278,7 @@ Starting with the existing tagging informations from the bookmark itself and the
                         {
                             "skosPrefLabel": [
                                 {
-                                    "value": "Omega <3 <Fettsäuren",
+                                    "value": "Omega 3 Fettsäuren",
                                     "language": "de"
                                 }
                             ],
@@ -1542,5 +1542,1739 @@ Starting with the existing tagging informations from the bookmark itself and the
                ]
             }
 
+# Group LearngingPath
+## Preview [/learningpath/preview/{uri}]
+### Get an overview over the path [GET]
 
++ Parameter 
+  + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Flearn%23path1cc90cf3-ee78-47f3-9716-5e87455144a2`) ... uri of an existing, valid and non-empty path. For ensuring those properties check for "learnIsPublished". 
+Returns a list of elements and a list of connections occuring in this path. The element numbers "learnHasIndex" do only occur in a published path...
+
+
++ Response 200 (application/json)
+    + Body
+
+            {
+               "learningElements":
+               [{
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc3791d198-844f-462d-9f91-55c006d0c222"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 16,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conncccc1062-6301-4893-889b-8a8a97ccf89a"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T02:31:44",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Ende des Lernpfads",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:54:56",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#Extroduction"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#extrof5e9cc25-13ce-417b-b37b-c7286430af19"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc9a0143b7-956c-48ff-bbe3-68b877fb4add"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 13,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#connd92e1a63-9238-41b2-b58d-41e30d5e30c4"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn1711f339-73cd-4d91-a762-c9d0d9ce99c0"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "http://bloochat.com/g9kx9"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T01:08:05",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Diskussion: Chat (1)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:45:20",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elemcee12748-04c8-436d-87f7-69d1de9ee7d2"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#descf072287b-bbfc-44a7-86fc-3069e63fbdee"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 3,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#connbfad6536-4f93-4f6e-b7bc-7213774f67d7"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn24700f29-db12-4bff-b2ff-e4fd8b4bbc71"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "https://food.de/sellingpoint/zipcode/"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-04T12:08:57",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Online-Supermarkt (1)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-08T03:48:33",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elem1582e470-7a0d-41cf-95eb-54c2d19c19a0"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#descc666f516-d049-434f-8939-651f97a542d2"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 7,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn72c03128-ae7e-4dac-95be-3c5b6a21d4d4"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#connb8499fa0-f4a8-4e99-8d0d-1fabe8e01df8"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "https://food.de/checkout/cart/?___SID=U"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T12:24:57",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Online-Supermarkt (5)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:37:12",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elemcefe60d5-4a1c-4a7c-951a-ada3ed615443"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc4e9006ce-7888-4799-a663-50607b425244"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 8,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#connb8499fa0-f4a8-4e99-8d0d-1fabe8e01df8"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn37740b9f-e8bf-43fb-a342-17d00b6f0dc9"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "https://food.de/checkout/cart/?___SID=U"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T12:38:41",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Online-Supermarkt (6)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:38:03",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elem159d45ba-67a6-4279-a822-2cc6cfebdfe8"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc4fbc88a0-be1a-4db9-a819-b5e5c7da4f14"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 11,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conne775da96-6a1b-4056-a370-80847d4b272c"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn30896603-1494-471a-99fa-67d9c21646ec"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "http://141.76.63.51/wordpress/?p=24"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T12:47:51",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Funktionelle Lebensmittel: Wie gesund ist Multivitaminsaft?",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:41:49",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elem40e9c885-271b-4880-930d-d672d6b6d21b"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc2ad5d8a6-53d1-44d9-8150-75e59b3aace5"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 5,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn254a6c51-afa0-43fe-bcfa-68e9e9a5a36d"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conneeabb215-37d7-4579-85c4-38e0553d00e0"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "https://food.de/lebensmittel.html/?id=3"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T12:08:08",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Online-Supermarkt (3)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-08T03:51:28",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elembafc266d-e866-4621-8b13-fe25e00e2cc7"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc10277e49-7a05-4ad1-9392-3881a3e3f4f8"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 4,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn24700f29-db12-4bff-b2ff-e4fd8b4bbc71"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn254a6c51-afa0-43fe-bcfa-68e9e9a5a36d"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "https://food.de/lebensmittel.html/?id=3"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-06-26T12:09:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Online-Supermarkt (2)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T12:23:09",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elemefbd4ce0-8832-44a0-b9fb-e12890df22c7"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc3afcdbb8-3dd6-4634-a8aa-03efac0a6550"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 12,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn30896603-1494-471a-99fa-67d9c21646ec"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#connd92e1a63-9238-41b2-b58d-41e30d5e30c4"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Image",
+                           "uri": "http://simple.wikipedia.org/wiki/Froot_Loops#mediaviewer/File:Froot_loops_in_a_bowl.jpg"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T01:05:18",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Diskussion",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-07T03:04:20",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#eleme5b37133-f887-4272-87f1-6210ea470a11"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc1a995d20-f102-403d-917d-1b3a49dec56e"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 2,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn392c3112-f9c8-48a2-9eaa-f2567bd4c72c"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#connbfad6536-4f93-4f6e-b7bc-7213774f67d7"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Image",
+                           "uri": "http://simple.wikipedia.org/wiki/Froot_Loops#mediaviewer/File:Froot_loops_in_a_bowl.jpg"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-04T12:12:37",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Beschreibung des Lernpfads",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T02:44:49",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elem5245161a-379a-420a-b880-43e21ef036e1"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desccf43cd90-44bc-4668-9f15-69f3b62232b4"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 10,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn30043e22-bdd6-45d0-9139-61939b0ab57d"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conne775da96-6a1b-4056-a370-80847d4b272c"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "http://www.faz.net/aktuell/rhein-main/wirtschaft/functional-food-wunder-gibt-es-nicht-im-supermarktregal-1464479.html"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T12:44:37",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Funktionelle Lebensmittel: "Wunder gibt es nicht im Supermarktregal"",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:40:37",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elemc6b912e2-b1f0-4755-80fa-8206e15206d8"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc138999b4-28de-4b87-b748-2e0a5a2b6bc6"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 14,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn1711f339-73cd-4d91-a762-c9d0d9ce99c0"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn5a77931d-0d9b-449a-8c53-ae0742a4d161"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "http://bloochat.com/g9kx9"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T01:12:54",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Diskussion: Chat (2)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-07T03:04:44",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elemfd87e9ac-21b6-4c5c-9b67-a14f92f70776"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc85eb0b7f-81c8-4e13-9c56-c5a6545cd3c1"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 6,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conneeabb215-37d7-4579-85c4-38e0553d00e0"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn72c03128-ae7e-4dac-95be-3c5b6a21d4d4"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Website",
+                           "uri": "https://food.de/lebensmittel.html/?id=3"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-06-26T12:19:34",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Online-Supermarkt (4)",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-08T03:52:29",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elem6c496eb0-fd0b-4abf-bdd9-2ecc35e731ef"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc4eac083c-ba2e-418a-ad4e-a9e434efe250"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 9,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn37740b9f-e8bf-43fb-a342-17d00b6f0dc9"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn30043e22-bdd6-45d0-9139-61939b0ab57d"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Image",
+                           "uri": "http://simple.wikipedia.org/wiki/Froot_Loops#mediaviewer/File:Froot_loops_in_a_bowl.jpg"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-01T12:41:13",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Funktionelle Lebensmittel",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T01:39:40",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elem35012994-bf9b-4c7c-97f5-64ed370b5672"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#desc24a88539-3ed1-48d0-b95d-9c759e60ad11"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 1,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conn392c3112-f9c8-48a2-9eaa-f2567bd4c72c"
+                   },
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-06-18T10:53:08",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasDuration":
+                   {
+                       "value": "PT45M0.000S",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#duration"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Beschreibung des Lernpfads 1",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-04T02:43:50",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#Introduction"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#intro7fa4302e-6b80-4b03-9c76-39e13e8a3ff8"
+               },
+               {
+                   "learnHasDescription":
+                   {
+                       "uri": "http://sesam.mobi/data/learn#descc07c890f-9862-4820-af74-c7ad8e0ad0ab"
+                   },
+                   "learnHasIndex":
+                   {
+                       "value": 15,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "learnIncomingTransition":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.SimpleTransition",
+                           "uri": "http://sesam.mobi/data/learn#conn5a77931d-0d9b-449a-8c53-ae0742a4d161"
+                       }
+                   ],
+                   "learnOutgoingTransition":
+                   {
+                       "@class": "http.sesam.mobi.learn.SimpleTransition",
+                       "uri": "http://sesam.mobi/data/learn#conncccc1062-6301-4893-889b-8a8a97ccf89a"
+                   },
+                   "contentRefersToContent":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.content.Image",
+                           "uri": "http://de.yoyowall.com/wp-content/uploads/2013/06/Farbige-Mais.jpg"
+                       }
+                   ],
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/concepts#85e43d"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-07-04T01:49:18",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Geschafft!",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-07-07T03:28:22",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamMobile":
+                   {
+                       "value": true,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "sesamMobileOnly":
+                   {
+                       "value": false,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#boolean"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearningElement"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#elemc74c3ff4-5c70-486f-8150-e5d9cd41c2a4"
+               }],
+               "elementTransitions":
+               [{
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem35012994-bf9b-4c7c-97f5-64ed370b5672"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem159d45ba-67a6-4279-a822-2cc6cfebdfe8"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn37740b9f-e8bf-43fb-a342-17d00b6f0dc9"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem40e9c885-271b-4880-930d-d672d6b6d21b"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemc6b912e2-b1f0-4755-80fa-8206e15206d8"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conne775da96-6a1b-4056-a370-80847d4b272c"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemc74c3ff4-5c70-486f-8150-e5d9cd41c2a4"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemfd87e9ac-21b6-4c5c-9b67-a14f92f70776"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn5a77931d-0d9b-449a-8c53-ae0742a4d161"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemfd87e9ac-21b6-4c5c-9b67-a14f92f70776"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemcee12748-04c8-436d-87f7-69d1de9ee7d2"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn1711f339-73cd-4d91-a762-c9d0d9ce99c0"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemefbd4ce0-8832-44a0-b9fb-e12890df22c7"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem1582e470-7a0d-41cf-95eb-54c2d19c19a0"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn24700f29-db12-4bff-b2ff-e4fd8b4bbc71"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemc6b912e2-b1f0-4755-80fa-8206e15206d8"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem35012994-bf9b-4c7c-97f5-64ed370b5672"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn30043e22-bdd6-45d0-9139-61939b0ab57d"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemcefe60d5-4a1c-4a7c-951a-ada3ed615443"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem6c496eb0-fd0b-4abf-bdd9-2ecc35e731ef"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn72c03128-ae7e-4dac-95be-3c5b6a21d4d4"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#eleme5b37133-f887-4272-87f1-6210ea470a11"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem40e9c885-271b-4880-930d-d672d6b6d21b"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn30896603-1494-471a-99fa-67d9c21646ec"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem5245161a-379a-420a-b880-43e21ef036e1"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.Introduction",
+                       "uri": "http://sesam.mobi/data/learn#intro7fa4302e-6b80-4b03-9c76-39e13e8a3ff8"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn392c3112-f9c8-48a2-9eaa-f2567bd4c72c"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemcee12748-04c8-436d-87f7-69d1de9ee7d2"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#eleme5b37133-f887-4272-87f1-6210ea470a11"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#connd92e1a63-9238-41b2-b58d-41e30d5e30c4"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem1582e470-7a0d-41cf-95eb-54c2d19c19a0"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem5245161a-379a-420a-b880-43e21ef036e1"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#connbfad6536-4f93-4f6e-b7bc-7213774f67d7"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elembafc266d-e866-4621-8b13-fe25e00e2cc7"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemefbd4ce0-8832-44a0-b9fb-e12890df22c7"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conn254a6c51-afa0-43fe-bcfa-68e9e9a5a36d"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem6c496eb0-fd0b-4abf-bdd9-2ecc35e731ef"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elembafc266d-e866-4621-8b13-fe25e00e2cc7"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conneeabb215-37d7-4579-85c4-38e0553d00e0"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elem159d45ba-67a6-4279-a822-2cc6cfebdfe8"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemcefe60d5-4a1c-4a7c-951a-ada3ed615443"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#connb8499fa0-f4a8-4e99-8d0d-1fabe8e01df8"
+               },
+               {
+                   "learnNextElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.Extroduction",
+                       "uri": "http://sesam.mobi/data/learn#extrof5e9cc25-13ce-417b-b37b-c7286430af19"
+                   },
+                   "learnPreviousElement":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearningElement",
+                       "uri": "http://sesam.mobi/data/learn#elemc74c3ff4-5c70-486f-8150-e5d9cd41c2a4"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#SimpleTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#ElementTransition"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/learn#conncccc1062-6301-4893-889b-8a8a97ccf89a"
+               }]
+            }
+
+
++ Parameter 
+  + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Flearn%23path4b50ac16-52b4-45bd-a2a5-414a1d33f581`) ... uri of an existing, valid and non-empty path. For ensuring those properties check for "learnIsPublished". 
+
++ Response 400
+
+            Something is wrong with this path
+
++ Response 401
+
+            No or wrong auth
+
++ Response 403
+
+            No legal access to the path (Future: Path not public or user not in group for this path.)
+
++ Response 404
+
+            No such path
 

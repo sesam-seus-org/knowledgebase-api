@@ -1,2 +1,2 @@
-Lernbrowser API Blueprint
-=========================
+Knowledgebase API Blueprint
+===========================

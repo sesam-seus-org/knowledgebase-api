@@ -4,41 +4,367 @@ HOST: http://www.google.com
 # Knowledgebase
 Notes API is a *short texts saving* service similar to its physical paper presence on your table.
 
-# Group Notes
-Notes related resources of the **Notes API**
-
-## Notes Collection [/notes]
-### List all Notes [GET]
+# Group Bookmarks
+ 
+## Retrieve last global used bookmark tags [/bookmarks/tag/lastused]
+### Retrieve the global last used bookmarks[GET]
 + Response 200 (application/json)
+    + Body
+        
+            {"latestTags": [
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "Lebensmittel",
+                                    "language": "de"
+                                }
+                            ],
+                            "skosAltLabel": [
+                                {
+                                    "value": "Nahrungsmittel",
+                                    "language": "de"
+                                },
+                                {
+                                    "value": "Essen",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#84e837"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-07-01T12:48:52",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-01T12:48:52",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#tie1c8a685-d315-4511-88c0-9b3706220aee"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "Kohlenhydrate",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#6bc115"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-06-16T12:08:55",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-06-16T12:08:55",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#ti31f07b1b-f447-40cc-9c11-ea2fde6f3d52"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "Fette",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#9fa00c"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-06-11T02:24:15",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-06-11T02:24:15",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#tif4bb0fef-d7e6-4c99-b615-cf7d63601088"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "Nahrungsmittel",
+                                    "language": "de"
+                                }
+                            ],
+                            "skosAltLabel": [
+                                {
+                                    "value": "Lebensmittel",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#29bcb8"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-07-01T12:48:52",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-01T12:48:52",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#ti6e267fab-266b-44aa-b14e-dcfc2a8dc92e"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "Omega <3 <Fettsäuren",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#4b6acf"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-07-14T03:35:50",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-14T04:03:22",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 11,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#tie9bdddfc-4280-41d4-ae09-1e73b718fc5f"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "funktionelle Getränke",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#fa2105"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-07-01T12:48:52",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-01T12:48:52",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#tia1432f34-b145-4380-b40e-050c8edc327b"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "Demo",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#2887e6"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-07-15T11:32:55",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-15T11:32:55",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#ti1fe2533b-5cae-4873-8427-3ee03c940bc2"
+                },
+                {
+                    "sesamAffectsConcept": [
+                        {
+                            "skosPrefLabel": [
+                                {
+                                    "value": "funktionelle Lebensmittel",
+                                    "language": "de"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/concepts#85e43d"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-06-26T12:02:32",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-04T12:21:28",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 2,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#tia9d93e56-cdb9-408c-934e-76eb5729ee18"
+                }
+            ]}
 
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
+## Retrieve all tags of a bookmark [/bookmarks/tag/existing/{uri}]
+### Retrieve all tags of a bookmark[GET]
++ Parameter
+    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
 
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
-
-### Retrieve a Note [GET]
 + Response 200 (application/json)
-
-    + Header
-
-            X-My-Header: The Value
-
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
++ Response 404
+
+## Retrieve recommended tags of a bookmark [/bookmarks/tag/recommended/{uri}]
+### Retrieve recommended tags of a bookmark[GET]
++ Parameter
+    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
+
++ Response 200 (application/json)
+    + Body
++ Response 404

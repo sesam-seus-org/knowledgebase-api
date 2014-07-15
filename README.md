@@ -1,2 +1,2 @@
-lernbrowser-api
-===============
+Lernbrowser API Blueprint
+=========================

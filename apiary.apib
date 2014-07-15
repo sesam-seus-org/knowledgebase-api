@@ -5,9 +5,404 @@ HOST: http://www.google.com
 Notes API is a *short texts saving* service similar to its physical paper presence on your table.
 
 # Group Bookmarks
+All around the bookmark API. 
+
+## Create and edit Bookmarkgroups  [/bookmarkgroups]
+
+### Create a new Group [PUT]
++ Request (application/json)
+    + Body
+    
+            {
+                "bookmarkgroup":{"sesamHasTitle":{"value":"meine Bookmarks"}}
+            }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "bookmarkgroup": {
+                    "sesamCreated": {
+                        "value": "2014-07-15T10:03:56",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                "sesamHasTitle": {
+                    "value": "meine Bookmarks",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "sesamLastModified": {
+                    "value": "2014-07-15T10:03:56",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamSize": {
+                    "value": 0,
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                },
+                "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                }
+            }
+
+### Modify a bookmarkgroup - only literals are allowed to change [POST]
+Note: It is not possible to edit the "bookmarkContainsBookmark"-property from this method. Change the ownership by using the "POST /bookmark" method.
+
++ Request (application/json)
+    + Body
+    
+            {
+                "bookmarkgroup": {
+                    "sesamHasTitle": {
+                        "value": "meine Bookmarks mit neuem Titel",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                    },
+                    "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                }
+            }
+
++ Response 200 (application/json)
+    + Body
+    
+            {
+                "bookmarkgroup": {
+                    "sesamCreated": {
+                        "value": "2014-07-15T10:03:56",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                "sesamHasTitle": {
+                    "value": "meine Bookmarks mit neuem Titel",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "sesamLastModified": {
+                    "value": "2014-07-15T10:20:56",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamSize": {
+                    "value": 0,
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                },
+                "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                }
+            }
+
+## Delete a bookmarkgroup [/bookmarkgroups/{uri}]
++ Parameter
+    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmarkgroup 
+
+### Delete a bookmarkgroup - includes deletion of contained bookmarks [DELETE]
+
++ Response 204
++ Response 401
+    
+## Manage bookmarks [/bookmarks]
+
+### Create a new Bookmark.   [PUT]
+#### Minimum Properties 
++ "sesamHasURL"  
++ "bookmarkInGroup"
+
++ Request (application/json)
+    + Body
+    
+            {
+                "bookmark": {
+                    "sesamHasTitle": {
+                        "value": "Ein Bookmark"
+                    },
+                    "sesamHasURL":[{"value":"http://www.google.de"}],
+                    "bookmarkInGroup":{"uri":"http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"}
+                }
+            }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+              "bookmark": {
+                "bookmarkInGroup": {
+                  "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                },
+                "sesamCreated": {
+                    "value": "2014-07-15T10:25:59",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamHasTitle": {
+                    "value": "Ein Bookmark",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "sesamHasURL": [
+                    {
+                        "value": "http://www.google.de",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    }
+                ],
+                "sesamLastModified": {
+                    "value": "2014-07-15T10:25:59",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "uri": "http://sesam.mobi/data/bookmarks#af003dd1-29bf-45a4-85b2-61b0885b88ce"
+                }
+            }
+
+### Modify a new Bookmark.   [POST]
+####The following changes are possible: 
++ Edit literal properties (such as "rdfsLabel", "rdfsComment", "sesamHasTitle", ...)
++ Set another bookmark group (change property "bookmarkInGroup")
++ Tagging of bookmark using free-text-tags and/or concept-tags (change property "sesamHasFreeTextTag", "sesamAffectsConcept")
+
+####Not allowed:
++ Changing properties: "sesamHasUrl"
+
+
+
++ Request (application/json)
+    + Body
+    
+            {
+                "bookmark": {
+                    "sesamHasTitle": {
+                        "value": "Ein Bookmark"
+                    },
+                    "sesamHasURL":[{"value":"http://www.google.de"}],
+                    "sesamHasFreeTextTag":[{"value":"Ein Tag wie jeder andere"}],
+                    "sesamAffectsConcept":[{"uri": "http://sesam.mobi/data/concepts#84e837"}],
+                    "bookmarkInGroup":{"uri":"http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"}
+                }
+            }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+              "bookmark": {
+                "bookmarkInGroup": {
+                  "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                },
+                "sesamCreated": {
+                    "value": "2014-07-15T10:25:59",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamHasTitle": {
+                    "value": "Ein Bookmark",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "sesamHasURL": [
+                    {
+                        "value": "http://www.google.de",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    }
+                ],
+                "sesamLastModified": {
+                    "value": "2014-07-15T10:25:59",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamHasFreeTextTag":[{"value":"Ein Tag wie jeder andere"}],
+                "sesamAffectsConcept":[{"uri": "http://sesam.mobi/data/concepts#84e837"}],
+                "uri": "http://sesam.mobi/data/bookmarks#af003dd1-29bf-45a4-85b2-61b0885b88ce"
+                }
+            }
+
+### Retrieve all Bookmarks and all Bookmarkgroups [GET]
++ Response 200 (application/json)
+    + body        
+    
+            {
+            "bookmarks": [
+                {
+                    "bookmarkInGroup": {
+                        "uri": "http://sesam.mobi/data/bookmarks#12fd6e9c-b090-459c-8584-3773d3101695"
+                    },
+                    "contentRefersToContent": [ {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "uri": "http://www.google.de"
+                    }],
+                    "sesamAffectsConcept": [
+                    {
+                        "uri": "http://sesam.mobi/data/concepts#4b6acf"
+                    }],
+                    "sesamCreated": {
+                        "value": "2014-07-14T03:32:43",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamHasURL": [{
+                        "value": "http://www.google.de",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    }],
+                    "sesamLastModified": {
+                        "value": "2014-07-14T04:03:12",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "rdfType": [
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://sesam.mobi/bookmarks#Bookmark"
+                    },
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                    }],
+                    "uri": "http://sesam.mobi/data/bookmarks#d98f3e14-63a1-4483-a4e8-4e287ff4fbfe"
+                },
+                {
+                    "bookmarkInGroup": {
+                        "uri": "http://sesam.mobi/data/bookmarks#12fd6e9c-b090-459c-8584-3773d3101695"
+                    },
+                    "contentRefersToContent": [
+                    {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "uri": "http://www.google.de"
+                    }],
+                    "sesamCreated": {
+                        "value": "2014-07-14T03:29:35",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamHasFreeTextTag":[
+                    {
+                        "value":"Ein schöner Tag", 
+                        "language":"de" 
+                    }],
+                    "sesamHasURL": [
+                    {
+                        "value": "http://www.google.de",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    }],
+                    "sesamLastModified": {
+                        "value": "2014-07-14T03:29:35",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "rdfType": [
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://sesam.mobi/bookmarks#Bookmark"
+                    },
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                    }],
+                    "uri": "http://sesam.mobi/data/bookmarks#81ce5417-1635-4859-8d32-8dcc29d12586"
+                },
+                {
+                    "bookmarkInGroup": {
+                        "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                    },
+                    "contentRefersToContent": [
+                    {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "uri": "http://www.google.de"
+                    }],
+                    "sesamCreated": {
+                        "value": "2014-07-15T10:25:59",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamHasTitle": {
+                        "value": "Ein Bookmark mit neuem Titel",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                    },
+                    "sesamHasURL": [
+                    {
+                        "value": "http://www.google.de",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    }],
+                    "sesamLastModified": {
+                        "value": "2014-07-15T10:25:59",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "rdfType": [
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://sesam.mobi/bookmarks#Bookmark"
+                    },
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                    }],
+                    "uri": "http://sesam.mobi/data/bookmarks#af003dd1-29bf-45a4-85b2-61b0885b88ce"
+                }
+            ],
+            "bookmarkgroups": [
+                {
+                    "bookmarkContainsBookmark": [
+                    {
+                        "uri": "http://sesam.mobi/data/bookmarks#d98f3e14-63a1-4483-a4e8-4e287ff4fbfe"
+                    },
+                    {
+                        "uri": "http://sesam.mobi/data/bookmarks#81ce5417-1635-4859-8d32-8dcc29d12586"
+                    }],
+                    "sesamCreated": {
+                        "value": "2014-07-14T02:46:59",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamHasTitle": {
+                        "value": "meine Bookmarks",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-14T04:04:35",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 2,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://sesam.mobi/bookmarks#BookmarkGroup"
+                    },
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                    }],
+                    "uri": "http://sesam.mobi/data/bookmarks#12fd6e9c-b090-459c-8584-3773d3101695"
+                },
+                {
+                    "bookmarkContainsBookmark": [
+                    {
+                        "uri": "http://sesam.mobi/data/bookmarks#af003dd1-29bf-45a4-85b2-61b0885b88ce"
+                    }],
+                    "sesamCreated": {
+                        "value": "2014-07-15T10:03:56",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamHasTitle": {
+                        "value": "meine Bookmarks",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-15T10:25:59",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamSize": {
+                        "value": 1,
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                    },
+                    "rdfType": [
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                    },
+                    {
+                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                        "uri": "http://sesam.mobi/bookmarks#BookmarkGroup"
+                    }],
+                    "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                }]
+            }
+
+## Delete a single bookmark [/bookmarks/{uri}]
+### Delete a single bookmark [DELETE]
++ Parameter
+    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
+
++ Response 204
+
+
+# Group Tagging of Bookmarks
+The following methods can be used to retrieve some recommendations for the current bookmark. In addition to the folliwing method the search for concepts can be used for implementing an auto-completion. 
  
 ## Retrieve last global used bookmark tags [/bookmarks/tag/lastused]
 ### Retrieve the global last used bookmarks[GET]
+
+The results will contained those tags that were given at last by any user, independend from the current bookmark and refered content. 
+
 + Response 200 (application/json)
     + Body
 
@@ -63,15 +458,10 @@ Notes API is a *short texts saving* service similar to its physical paper presen
                     "uri": "http://sesam.mobi/data/content#tie1c8a685-d315-4511-88c0-9b3706220aee"
                 },
                 {
-                    "sesamAffectsConcept": [
+                    "sesamHasFreeTextTag": [
                         {
-                            "skosPrefLabel": [
-                                {
-                                    "value": "Kohlenhydrate",
-                                    "language": "de"
-                                }
-                            ],
-                            "uri": "http://sesam.mobi/data/concepts#6bc115"
+                            "value": "sinnloser Freitexttag",
+                            "language": "de"
                         }
                     ],
                     "sesamCreated": {
@@ -350,8 +740,10 @@ Notes API is a *short texts saving* service similar to its physical paper presen
                 }
             ]}
 
-## Retrieve all tags of the content-node refered by the given bookmark [/bookmarks/tag/existing/{uri}]
-### Retrieve all tags of a bookmark[GET]
+## Retrieve all tags of the refered content-node [/bookmarks/tag/existing/{uri}]
+
+### Retrieve all tags of the refered content-node [GET]
+The Result will contain all those tags that have been connected to the content-node (refered by the bookmark).
 + Parameter
     + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
 
@@ -409,16 +801,11 @@ Notes API is a *short texts saving* service similar to its physical paper presen
                     ],
                     "uri": "http://sesam.mobi/data/content#tie1c8a685-d315-4511-88c0-9b3706220aee"
                 },
-                {
-                    "sesamAffectsConcept": [
-                        {
-                            "skosPrefLabel": [
                                 {
-                                    "value": "Kohlenhydrate",
-                                    "language": "de"
-                                }
-                            ],
-                            "uri": "http://sesam.mobi/data/concepts#6bc115"
+                    "sesamHasFreeTextTag": [
+                        {
+                            "value": "sinnloser Freitexttag",
+                            "language": "de"
                         }
                     ],
                     "sesamCreated": {
@@ -707,6 +1094,7 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 
 ## Retrieve recommended tags of a bookmark [/bookmarks/tag/recommended/{uri}]
 ### Retrieve recommended tags of a bookmark[GET]
+Starting with the existing tagging informations from the bookmark itself and the tagging informations of the content-node (refered by the bookmark) this method will return an example set of recommended tags that can be used to annotate the bookmark further. 
 + Parameter
     + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
 
@@ -765,15 +1153,10 @@ Notes API is a *short texts saving* service similar to its physical paper presen
                     "uri": "http://sesam.mobi/data/content#tie1c8a685-d315-4511-88c0-9b3706220aee"
                 },
                 {
-                    "sesamAffectsConcept": [
+                    "sesamHasFreeTextTag": [
                         {
-                            "skosPrefLabel": [
-                                {
-                                    "value": "Kohlenhydrate",
-                                    "language": "de"
-                                }
-                            ],
-                            "uri": "http://sesam.mobi/data/concepts#6bc115"
+                            "value": "sinnloser Freitexttag",
+                            "language": "de"
                         }
                     ],
                     "sesamCreated": {
@@ -1057,5 +1440,107 @@ Notes API is a *short texts saving* service similar to its physical paper presen
     
             no such bookmark {uri}
             or no such content http://www.kaputte-url.com
+
+# Group SESAM-Search
+## Using the Free-Text Search [/search?text={text}&offset={offset}&limit={limit}]
+### Retrieve Concepts by its name [GET]
++ Parameter
+    + text(required, string, `text=Nahr`) ... textual input 
+    + offset = `0` (optional, int, `5`) ... ignore the first n results
+    + limit = `10` (optional, int, `10`) ... get the next n results
+    
++ response 200 (application/json)
+    + Body
+    
+            {
+               "concepts":
+               [
+                   {
+                       "skosBroader":
+                       [
+                           {
+                               "@class": "http.www.w3.org200402.skos.core.Concept",
+                               "skosAltLabel":
+                               [
+                                   {
+                                       "value": "Nahrungsmittel",
+                                       "language": "de"
+                                   },
+                                   {
+                                       "value": "Essen",
+                                       "language": "de"
+                                   }
+                               ],
+                               "skosPrefLabel":
+                               [
+                                   {
+                                       "value": "Lebensmittel",
+                                       "language": "de"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/concepts#84e837"
+                           }
+                       ],
+                       "skosPrefLabel":
+                       [
+                           {
+                               "value": "funktionelle Lebensmittel",
+                               "language": "de"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/concepts#85e43d"
+                   },
+                   {
+                       "skosBroader":
+                       [
+                           {
+                               "@class": "http.www.w3.org200402.skos.core.Concept",
+                               "skosBroader":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200402.skos.core.Concept",
+                                       "skosAltLabel":
+                                       [
+                                           {
+                                               "value": "Nahrungsmittel",
+                                               "language": "de"
+                                           },
+                                           {
+                                               "value": "Essen",
+                                               "language": "de"
+                                           }
+                                       ],
+                                       "skosPrefLabel":
+                                       [
+                                           {
+                                               "value": "Lebensmittel",
+                                               "language": "de"
+                                           }
+                                       ],
+                                       "uri": "http://sesam.mobi/data/concepts#84e837"
+                                   }
+                               ],
+                               "skosPrefLabel":
+                               [
+                                   {
+                                       "value": "funktionelle Lebensmittel",
+                                       "language": "de"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/concepts#85e43d"
+                           }
+                       ],
+                       "skosPrefLabel":
+                       [
+                           {
+                               "value": "funktionelle Getränke",
+                               "language": "de"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/concepts#fa2105"
+                   }
+               ]
+            }
+
 
 

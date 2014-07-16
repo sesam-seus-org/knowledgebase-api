@@ -4,6 +4,371 @@ HOST: http://www.google.com
 # Knowledgebase
 Notes API is a *short texts saving* service similar to its physical paper presence on your table.
 
+# Group Error Codes
+
+## Retrieve a List of supported error message formats [/errorcodes]
+Lists all current supported error codes. The error message that belong to the error code is fix. The error details and the arguments may vary from case to case and are for humans not for machines ;)
+
+the `className`, `lineNumber` and `methodName` name declare can be usefull for debugging an unexpected error code on the knowledgebase. 
+
+### Retrieve a List of supported error message formats [GET]
+
++ Response 200 (application/json)
+  + Body
+
+
+            {
+               "errorPlain":
+               [
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Missing Content",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 1
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Unexpected Content",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 2
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Ressource does not exist",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 3
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "URL not correct! Use schema: http(s)://www.*.*",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 4
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Invalid committed data",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 5
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Invalid data",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 6
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Invalid call",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 7
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "The given configuration is not possible",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 8
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Invalid parameters",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 9
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Missing Parameters",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 10
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Server Exception",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 11
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Unhandled case",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 12
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorMessage": "Unexpected error",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 53,
+                       "errorCode": 13
+                   }
+               ],
+               "errorWithMessage":
+               [
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Missing Content",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 1
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Unexpected Content",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 2
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Ressource does not exist",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 3
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "URL not correct! Use schema: http(s)://www.*.*",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 4
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid committed data",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 5
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid data",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 6
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid call",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 7
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "The given configuration is not possible",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 8
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid parameters",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 9
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Missing Parameters",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 10
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Server Exception",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 11
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Unhandled case",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 12
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Unexpected error",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 54,
+                       "errorCode": 13
+                   }
+               ],
+               "errorWithMessageAndArgument":
+               [
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Missing Content",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 1
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Unexpected Content",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 2
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Ressource does not exist",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 3
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "URL not correct! Use schema: http(s)://www.*.*",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 4
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid committed data",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 5
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid data",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 6
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid call",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 7
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "The given configuration is not possible",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 8
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Invalid parameters",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 9
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Missing Parameters",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 10
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Server Exception",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 11
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Unhandled case",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 12
+                   },
+                   {
+                       "argument": "uri Or Property",
+                       "errorDetails": "Human readable message",
+                       "errorMessage": "Unexpected error",
+                       "methodName": "examples",
+                       "className": "mobi.sesam.knowledgebase.dataaccess.ErrorContainer",
+                       "lineNumber": 55,
+                       "errorCode": 13
+                   }
+               ]
+            }
+
+
+
 # Group Bookmarks
 All around the bookmark API. 
 

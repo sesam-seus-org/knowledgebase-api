@@ -3278,3 +3278,319 @@ Returns a list of elements and a list of connections occuring in this path. The 
 
             No such path
 
+# Group Importer
+## Call Importer [/import?url={url}]
++ Parameter
+  + url (required, URL, `http%3A%2F%2Fwww.google.de`) ... url-encoded url 
+
+
+### Call Importer [GET]
+Invokes the import components by explicit call. The knowledge base will contain a content resource having uri={url} . For getting details about the created content resource call /contentdata/{url}
++ Response 201 
+  
++ Response 400
+  + Body
+  
+            {
+               "errorDetails": "blub",
+               "errorMessage": "URL not correct! Use schema: http(s)://www.*.*",
+               "methodName": "apply",
+               "className": "controllers.Importer$$anonfun$importAcion$1$$anonfun$apply$1",
+               "lineNumber": 72,
+               "errorCode": 4
+            }
+        
+
+# Group Content Resources
+Content resources are the internal representation of en external (web) content. It can be distiguished by type. Some possible types are WebSite, Image, VideoTrac, ... 
+
+The vocabulary is defined by the ontology `content.ttl`. That includes the Media-Ontology and Dublincore.
+
+## Retrieve content data [/contentdata/{url}]
++ Parameter
+  + url (required, URL, `http%3A%2F%2Fwww.google.de`) ... url-encoded url 
+
+
+### Retrieve content data [GET]
+Returns the content data of an imported content resource. 
+Invokes the import components by implicit call, if the content resource is not yet imported.
++ Response 200
+  + Body
+  
+
+            {
+               "contentResource":
+               {
+                   "@class": "http.sesam.mobi.content.Website",
+                   "sesamAffectsConcept":
+                   [
+                       {
+                           "skosPrefLabel":
+                           [
+                               {
+                                   "value": "funktionelle Getränke",
+                                   "language": "de"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/concepts#fa2105"
+                       },
+                       {
+                           "skosPrefLabel":
+                           [
+                               {
+                                   "value": "Omega 3 Fettsäuren",
+                                   "language": "de"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/concepts#4b6acf"
+                       },
+                       {
+                           "skosPrefLabel":
+                           [
+                               {
+                                   "value": "Kohlenhydrate",
+                                   "language": "de"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/concepts#6bc115"
+                       },
+                       {
+                           "skosPrefLabel":
+                           [
+                               {
+                                   "value": "Fette",
+                                   "language": "de"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/concepts#9fa00c"
+                       }
+                   ],
+                   "sesamHasTitle":
+                   {
+                       "value": "Google",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamTaggingInfo":
+                   [
+                       {
+                           "sesamSize":
+                           {
+                               "value": 11,
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                           },
+                           "sesamAffectsConcept":
+                           [
+                               {
+                                   "skosPrefLabel":
+                                   [
+                                       {
+                                           "value": "Omega 3 Fettsäuren",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/data/concepts#4b6acf"
+                               }
+                           ],
+                           "sesamCreated":
+                           {
+                               "value": "2014-07-14T03:35:50",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "sesamLastModified":
+                           {
+                               "value": "2014-07-14T04:03:22",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2002/07/owl#Thing"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/content#tie9bdddfc-4280-41d4-ae09-1e73b718fc5f"
+                       },
+                       {
+                           "sesamSize":
+                           {
+                               "value": 1,
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                           },
+                           "sesamAffectsConcept":
+                           [
+                               {
+                                   "skosPrefLabel":
+                                   [
+                                       {
+                                           "value": "funktionelle Getränke",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/data/concepts#fa2105"
+                               }
+                           ],
+                           "sesamCreated":
+                           {
+                               "value": "2014-06-11T11:28:45",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "sesamLastModified":
+                           {
+                               "value": "2014-06-11T11:28:45",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2002/07/owl#Thing"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/content#ti26ca97cb-84fe-432a-a3fe-60e501b83d67"
+                       },
+                       {
+                           "sesamSize":
+                           {
+                               "value": 1,
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                           },
+                           "sesamAffectsConcept":
+                           [
+                               {
+                                   "skosPrefLabel":
+                                   [
+                                       {
+                                           "value": "Kohlenhydrate",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/data/concepts#6bc115"
+                               }
+                           ],
+                           "sesamCreated":
+                           {
+                               "value": "2014-06-16T12:08:55",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "sesamLastModified":
+                           {
+                               "value": "2014-06-16T12:08:55",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2002/07/owl#Thing"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/content#ti31f07b1b-f447-40cc-9c11-ea2fde6f3d52"
+                       },
+                       {
+                           "sesamSize":
+                           {
+                               "value": 1,
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                           },
+                           "sesamAffectsConcept":
+                           [
+                               {
+                                   "skosPrefLabel":
+                                   [
+                                       {
+                                           "value": "Fette",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/data/concepts#9fa00c"
+                               }
+                           ],
+                           "sesamCreated":
+                           {
+                               "value": "2014-06-11T02:24:15",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "sesamLastModified":
+                           {
+                               "value": "2014-06-11T02:24:15",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2002/07/owl#Thing"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/ontology#TaggingInfo"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/content#tif4bb0fef-d7e6-4c99-b615-cf7d63601088"
+                       }
+                   ],
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/content#Website"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/content#ContentResource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/content#Webcontent"
+                       }
+                   ],
+                   "uri": "http://www.google.de"
+               }
+            }
+        
+
+  
++ Response 404
+  + Body
+  
+            {
+               "errorDetails": "blub",
+               "errorMessage": "Ressource does not exist",
+               "methodName": "apply",
+               "className": "controllers.ContentData$$anonfun$getContentData$1",
+               "lineNumber": 259,
+               "errorCode": 3
+            }
+
+
+        
+
+

@@ -368,6 +368,316 @@ the `className`, `lineNumber` and `methodName` name declare can be usefull for d
             }
 
 
+# Group Notesbooks and Notes
+All around the notes API. Notes must have a Notebook to exist. Create a notebook first then create notes in them. Deleting notebooks deletes all notes in it.
+
+## Create, retrieve and modify Notebooks [/notebooks]
+
+### Create a new Notebook [PUT]
+Note: Save the uri of the notebooks, you need if later for creating new notes.
++ Request (application/json)
+    + Body
+    
+            { 
+                "notebooks": [ 
+                    { 
+                        "sesamHasTitle": { 
+                            "value": "My first notebok! Wow!"
+                        } 
+                    }
+                ] 
+            }
+
++ Response 201 (application/json)
+    + Body
+
+            {
+                "notebooks": [
+                    {
+                        "sesamCreated": {
+                            "value": "2014-07-22T12:21:27",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                        },
+                        "sesamHasTitle": {
+                            "value": "My first notebok! Wow!"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-07-22T12:21:27",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                        },
+                        "sesamSize": {
+                            "value": 0,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "uri": "http://sesam.mobi/data/notes#a880bcca-65df-47a6-a730-251cbb218369"
+                    }
+                ]
+            }
+
++ Response 401
++ Response 500
+
+
+### Modify a notebook [POST]
+You only could change the name of a notebook.
+
++ Request (application/json)
+    + Body
+    
+            {
+                "notebooks": [
+                    {
+                        "sesamHasTitle": {
+                            "value": "My first notebook! Wow!"
+                        },
+                        "uri": "http://sesam.mobi/data/notes#a880bcca-65df-47a6-a730-251cbb218369"
+                    }
+                ]
+            }
+
++ Response 200 (application/json)
+    + Body
+    
+            {
+                "notebooks": [
+                    {
+                        "sesamHasTitle": {
+                            "value": "My first notebook! Wow!"
+                        },
+                        "uri": "http://sesam.mobi/data/notes#a880bcca-65df-47a6-a730-251cbb218369"
+                    }
+                ]
+            }
+
++ Response 401
++ Response 500
+
+### Read all notebooks [GET]
+You could only access all notebooks at once. 
+If there are notes in the notebook you get all notes (notesContainsNote) 
+and the laste used note (notesLastNote).
+
++ Request (*/*)
+
++ Response 200 (application/json)
+           
+            {
+                "notebooks": [
+                    {
+                        "sesamCreated": {
+                            "value": "2014-07-22T12:21:27",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamHasTitle": {
+                            "value": "hallo, das ist mein Notasdizbuch",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-07-22T12:38:11",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamSize": {
+                            "value": 0,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "uri": "http://sesam.mobi/data/notes#a880bcca-65df-47a6-a730-251cbb218369"
+                    },
+                    {
+                        "notesContainsNote": [
+                            {
+                                "notesHasContent": {
+                                    "value": "<p>der erste Eintrag</p>",
+                                    "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                },
+                                "sesamCreated": {
+                                    "value": "2014-07-22T11:58:23",
+                                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                                },
+                                "sesamHasTitle": {
+                                    "value": "der erste Eintrag",
+                                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                },
+                                "sesamLastModified": {
+                                    "value": "2014-07-22T11:58:23",
+                                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                                },
+                                "uri": "http://sesam.mobi/data/notes#8b6b07b1-7b08-40a7-babb-99dbd7f25022"
+                            }
+                        ],
+                        "notesLastNote": {
+                            "notesHasContent": {
+                                "value": "<p>der erste Eintrag</p>",
+                                "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                            },
+                            "sesamCreated": {
+                                "value": "2014-07-22T11:58:23",
+                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                            },
+                            "sesamHasTitle": {
+                                "value": "der erste Eintrag",
+                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                            },
+                            "sesamLastModified": {
+                                "value": "2014-07-22T11:58:23",
+                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                            },
+                            "uri": "http://sesam.mobi/data/notes#8b6b07b1-7b08-40a7-babb-99dbd7f25022"
+                        },
+                        "sesamCreated": {
+                            "value": "2014-07-22T11:14:47",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamHasTitle": {
+                            "value": "hallo, das ist mein Notizbuch",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-07-22T11:58:23",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamSize": {
+                            "value": 1,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "uri": "http://sesam.mobi/data/notes#2e739149-cf34-4666-87f1-a0004be2bb55"
+                    }
+                ]
+            }
+
++ Response 401
++ Response 500
+
+## Delete Notebooks [/notebooks/{uri}]
++ Parameter
+    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%23a880bcca-65df-47a6-a730-251cbb218369`) ... uri of the notebook 
+
+### Delete notebook [DELETE]
+
++ Response 204
++ Response 401
++ Response 500
+
+
+## Create and modify notes [/notes]
+Notes are statically bound to notebooks. Notes could only be created you if tell us in which notebook 
+(notesInNotebook) you want your note to be created. 
+
+### Create Notes [PUT]
+#### Minimum Properties 
++ "sesamHasTitle"  
++ "notesHasContent"
++ "notesInNotebook"
+
++ Request (application/json)
+    + Body
+    
+            { 
+                "notes": [
+                    { 
+                        "sesamHasTitle": { 
+                            "value": "My first Note" 
+                        }, 
+                        "notesHasContent": { 
+                            "value": "<p>Use HTML-Tags if you want to!</p>" 
+                        }, 
+                        "notesInNotebook": { 
+                            "uri":"http://sesam.mobi/data/notes#a880bcca-65df-47a6-a730-251cbb218369" 
+                        } 
+                    } 
+                ] 
+            }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+                "notes": [
+                    {
+                        "notesHasContent": {
+                            "value": "<p>Use HTML-Tags if you want to!</p>"
+                        },
+                        "sesamCreated": {
+                            "value": "2014-07-22T01:13:46",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                        },
+                        "sesamHasTitle": {
+                            "value": "My first Note"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-07-22T01:13:46",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                        },
+                        "uri": "http://sesam.mobi/data/notes#8d0fd1d2-d668-42bc-99e5-234fec11700c"
+                    }
+                ]
+            }
+
+### Modify Notes. [POST]
+####The following changes are possible: 
++ Edit literal properties (such as "rdfsLabel", "rdfsComment", "sesamHasTitle", ...)
++ Set another bookmark group (change property "bookmarkInGroup")
++ Tagging of bookmark using free-text-tags and/or concept-tags (change property "sesamHasFreeTextTag", "sesamAffectsConcept")
+
+####Not allowed:
++ Changing properties: "sesamHasUrl"
+
+
+
++ Request (application/json)
+    + Body
+    
+            {
+                "bookmark": {
+                    "sesamHasTitle": {
+                        "value": "Ein Bookmark"
+                    },
+                    "sesamHasURL":[{"value":"http://www.google.de"}],
+                    "sesamHasFreeTextTag":[{"value":"Ein Tag wie jeder andere"}],
+                    "sesamAffectsConcept":[{"uri": "http://sesam.mobi/data/concepts#84e837"}],
+                    "bookmarkInGroup":{"uri":"http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"}
+                }
+            }
+
++ Response 201 (application/json)
+    + Body
+    
+            {
+              "bookmark": {
+                "bookmarkInGroup": {
+                  "uri": "http://sesam.mobi/data/bookmarks#090eb4a0-db60-42a8-a23d-fa3ec52a7598"
+                },
+                "sesamCreated": {
+                    "value": "2014-07-15T10:25:59",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamHasTitle": {
+                    "value": "Ein Bookmark",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "sesamHasURL": [
+                    {
+                        "value": "http://www.google.de",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#anyURI"
+                    }
+                ],
+                "sesamLastModified": {
+                    "value": "2014-07-15T10:25:59",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                },
+                "sesamHasFreeTextTag":[{"value":"Ein Tag wie jeder andere"}],
+                "sesamAffectsConcept":[{"uri": "http://sesam.mobi/data/concepts#84e837"}],
+                "uri": "http://sesam.mobi/data/bookmarks#af003dd1-29bf-45a4-85b2-61b0885b88ce"
+                }
+            }
+
+
+## Delete notes [/notes/{uri}]
+### Delete a single bookmark [DELETE]
++ Parameter
+    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
+
++ Response 204
+
 
 # Group Bookmarks
 All around the bookmark API. 

@@ -4252,6 +4252,232 @@ Invoces the import components by implicit call, if the content resource is not y
             }
 
 
-        
+# Group Recommendations
+Recommendations are used to recommend Content Resources in general and to Users in selected User Groups.
+Users can recommend Content Resources by Aspects.
 
+## create/get recommendations [/recommendation/{uri}]
+
+### create recommendation [PUT]
+#### Minimum Properties 
++ "contentHasAspects"  
++ Parameter
+  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of ContentResource
+
++ Request (application/json)
+    + Body
+    
+            {
+                "recommendation": {
+                    "contentHasAspects": [
+                        {
+                            "uri": "http://sesam.mobi/content#factsProven"
+                        },
+                        {
+                            "uri": "http://sesam.mobi/content#understandable"
+                        }
+                    ],
+                    "rdfsComment": [
+                        {
+                            "value": "test"
+                        }
+                    ]
+                }
+            }
+
++ Response 200
+
+        Recommendation created
+
+### get recomendations [GET]
++ Parameter
+  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of ContentResource
+
++ Response 200
+    + Body
+    
+            {
+                "recommendation": {
+                    "contentHasWeightedAspect": [
+                        {
+                            "contentHasAspect": {
+                                "rdfType": [
+                                    {
+                                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                        "uri": "http://sesam.mobi/content#RecommendationAspect"
+                                    }
+                                ],
+                                "rdfsLabel": [
+                                    {
+                                        "value": "Well Understandable",
+                                        "language": "en"
+                                    },
+                                    {
+                                        "value": "Gut Verständlich",
+                                        "language": "de"
+                                    }
+                                ],
+                                "uri": "http://sesam.mobi/content#understandable"
+                            },
+                            "sesamSize": {
+                                "value": 1,
+                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                            },
+                            "rdfType": [
+                                {
+                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                },
+                                {
+                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                },
+                                {
+                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                    "uri": "http://sesam.mobi/content#RecommendationAspectWeighted"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/content#5be095fa-95a8-498d-91f0-b2e7500295e2"
+                        },
+                        {
+                            "contentHasAspect": {
+                                "rdfType": [
+                                    {
+                                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                        "uri": "http://sesam.mobi/content#RecommendationAspect"
+                                    }
+                                ],
+                                "rdfsLabel": [
+                                    {
+                                        "value": "Fakten sind Belegt",
+                                        "language": "de"
+                                    },
+                                    {
+                                        "value": "Facts are Proven",
+                                        "language": "en"
+                                    }
+                                ],
+                                "uri": "http://sesam.mobi/content#factsProven"
+                            },
+                            "sesamSize": {
+                                "value": 1,
+                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                            },
+                            "rdfType": [
+                                {
+                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                },
+                                {
+                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                },
+                                {
+                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                    "uri": "http://sesam.mobi/content#RecommendationAspectWeighted"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/content#8c83a368-f65d-4b26-bd31-00c1825aea06"
+                        }
+                    ],
+                    "sesamCreated": {
+                        "value": "2014-07-27T10:42:28",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-27T10:42:28",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/content#Recommendation"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#e9eb3dec-f7e1-4237-b9b8-57633f6a0f3f"
+                },
+                "recommendations": [
+                    {
+                        "contentHasAspects": [
+                            {
+                                "rdfType": [
+                                    {
+                                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                        "uri": "http://sesam.mobi/content#RecommendationAspect"
+                                    }
+                                ],
+                                "rdfsLabel": [
+                                    {
+                                        "value": "Well Understandable",
+                                        "language": "en"
+                                    },
+                                    {
+                                        "value": "Gut Verständlich",
+                                        "language": "de"
+                                    }
+                                ],
+                                "uri": "http://sesam.mobi/content#understandable"
+                            },
+                            {
+                                "rdfType": [
+                                    {
+                                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                        "uri": "http://sesam.mobi/content#RecommendationAspect"
+                                    }
+                                ],
+                                "rdfsLabel": [
+                                    {
+                                        "value": "Fakten sind Belegt",
+                                        "language": "de"
+                                    },
+                                    {
+                                        "value": "Facts are Proven",
+                                        "language": "en"
+                                    }
+                                ],
+                                "uri": "http://sesam.mobi/content#factsProven"
+                            }
+                        ],
+                        "contentRecommendedByUser": {
+                            "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                        },
+                        "sesamCreated": {
+                            "value": "2014-07-27T10:42:28",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-07-27T10:42:28",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/content#Recommendation"
+                            }
+                        ],
+                        "rdfsComment": [
+                            {
+                                "value": "toll"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/content#c8943d30-b11c-4ba9-9fac-8227822cc965"
+                    }
+                ]
+            }
 

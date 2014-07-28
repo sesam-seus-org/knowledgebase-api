@@ -4256,13 +4256,11 @@ Invoces the import components by implicit call, if the content resource is not y
 Recommendations are used to recommend Content Resources in general and to Users in selected User Groups.
 Users can recommend Content Resources by Aspects.
 
-## create/get recommendations [/recommendation/{uri}]
+## create recommendations [/recommendation]
 
 ### create recommendation [PUT]
 #### Minimum Properties 
-+ "contentHasAspects"  
-+ Parameter
-  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of ContentResource
++ "contentHasAspects"
 
 + Request (application/json)
     + Body
@@ -4274,20 +4272,54 @@ Users can recommend Content Resources by Aspects.
                             "uri": "http://sesam.mobi/content#factsProven"
                         },
                         {
-                            "uri": "http://sesam.mobi/content#understandable"
+                            "uri": "http://sesam.mobi/content#informative"
                         }
                     ],
                     "rdfsComment": [
                         {
-                            "value": "test"
+                            "value": "hervorragend"
                         }
                     ]
+                },
+                    "contentResource": {
+                        "uri": "http://www.google.de"
                 }
             }
 
 + Response 200
+    + Body
 
-        Recommendation created
+            {
+                "recommendation": {
+                    "contentHasAspects": [
+                        {
+                            "uri": "http://sesam.mobi/content#factsProven"
+                        },
+                        {
+                            "uri": "http://sesam.mobi/content#informative"
+                        }
+                    ],
+                    "contentRecommendedByUser": {
+                        "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                    },
+                    "sesamCreated": {
+                        "value": "2014-07-28T01:11:39",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-07-28T01:11:39",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                    },
+                    "rdfsComment": [
+                        {
+                            "value": "hervorragend"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#619efb16-4d84-4579-9ad2-fa3034d90893"
+                }
+            }
+            
+## get recommendations [/recommendation/{uri}]
 
 ### get recomendations [GET]
 + Parameter

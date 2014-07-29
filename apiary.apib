@@ -3939,33 +3939,36 @@ Returns a list of elements and a list of connections occuring in this path. The 
 
             No such path
 
-# Group Importer
-## Call Importer [/import?url={url}]
-+ Parameter
-  + url (required, URL, `http%3A%2F%2Fwww.google.de`) ... url-encoded url 
+# Group Content
+Content resources are the internal representation of en external (web) content. It can be distiguished by type. Some possible types are WebSite, Image, VideoTrac, etc. 
+The vocabulary is defined by the ontology `content.ttl`. That includes the Media-Ontology and Dublincore.
+
+## Content resources [/contentdata]
++ Model (application/json)
+
+            [{
+                "uri": "http://www.google.de"
+            }]
+
+### Import content resources [POST]
+
++ Request
+
+    [Content resources][]
 
 
-### Call Importer [GET]
-Invoces the import components by explicit call. The knowledge base will contain a content resource having uri={url} . For getting details about the created content resource call /contentdata/{url}
-+ Response 201 
-  
++ Response 201
+
+    [Content resources][]
+
+
 + Response 400
   + Body
-  
+
             {
-               "errorDetails": "blub",
-               "errorMessage": "URL not correct! Use schema: http(s)://www.*.*",
-               "methodName": "apply",
-               "className": "controllers.Importer$$anonfun$importAcion$1$$anonfun$apply$1",
-               "lineNumber": 72,
-               "errorCode": 4
+                "code": 4,
+                "message": "Invalid URL (should match http(s)://.*)"
             }
-        
-
-# Group Content Resources
-Content resources are the internal representation of en external (web) content. It can be distiguished by type. Some possible types are WebSite, Image, VideoTrac, ... 
-
-The vocabulary is defined by the ontology `content.ttl`. That includes the Media-Ontology and Dublincore.
 
 ## Retrieve content data [/contentdata/{url}]
 + Parameter

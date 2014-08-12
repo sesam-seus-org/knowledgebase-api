@@ -4513,3 +4513,145 @@ Users can recommend Content Resources by Aspects.
                 ]
             }
 
+#Group Concept Cloud
+Creates a Concetp cloud for a given Concept.
+
+## get concept cloud [/cloud?depth={depth}&concept={concept}]
+
+### get concept cloud [GET]
++ Parameter
+    + depth = `3` (optional, int, `2`) ... depth of Concept connections
+    + concept (required, string, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fconcepts%234b6acf`) ... Concept
+
++ Response 200
+    + Body
+    
+            {
+                "concepts": [
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Vitamine",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#6ff467"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Omega <3 <Fettsäuren",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#4b6acf"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "ACE <Saft",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#92f335"
+                    },
+                    {
+                        "skosAltLabel": [
+                            {
+                                "value": "Nahrungsmittel",
+                                "language": "de"
+                            },
+                            {
+                                "value": "Essen",
+                                "language": "de"
+                            }
+                        ],
+                        "skosPrefLabel": [
+                            {
+                                "value": "Lebensmittel",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#84e837"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Spurenelemente",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#604120"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Mineralstoffe",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#cd47b2"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Kohlenhydrate",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#6bc115"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Probiotika",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#49e9f4"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "funktionelle Lebensmittel",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#85e43d"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "Energy Drinks",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#082abe"
+                    },
+                    {
+                        "skosAltLabel": [
+                            {
+                                "value": "Lebensmittel",
+                                "language": "de"
+                            }
+                        ],
+                        "skosPrefLabel": [
+                            {
+                                "value": "Nahrungsmittel",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#29bcb8"
+                    },
+                    {
+                        "skosPrefLabel": [
+                            {
+                                "value": "funktionelle Getränke",
+                                "language": "de"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/concepts#fa2105"
+                    }
+                ]
+            }
+    

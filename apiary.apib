@@ -3966,8 +3966,12 @@ The vocabulary is defined by the ontology `content.ttl`. That includes the Media
   + Body
 
             {
-                "code": 4,
-                "message": "Invalid URL (should match http(s)://.*)"
+                "errorDetails": "blub",
+                "errorMessage": "URL not correct! Use schema: http(s)://.*",
+                "methodName": "apply",
+                "className": "controllers.Importer$$anonfun$importAcion$1$$anonfun$apply$1",
+                "lineNumber": 72,
+                "errorCode": 4
             }
 
 ## Retrieve content data [/contentdata/{url}]

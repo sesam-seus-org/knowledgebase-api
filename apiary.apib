@@ -5751,3 +5751,51 @@ Only properties are shown that are allowed by the user.
             }
 
 + response 404 
+
+# group Usergroups
+
+## manage usergroups [/usergroups]
+
+### get all own groups [GET]
+
++ response 201
+
+### modify a group [POST]
+
++ response 201
+
+### found a new group [PUT]
+
++ response 201
+
+## on single group [/usergroups/{uri}]
+
+### get the group [GET]
++ response 201
+
+### delete the group [DELETE]
++ response 201
+
+## search for groups [/usergroups/search?groupname={groupname}&offset={offset}&limit={limit}]
+### get groups [GET]
++ response 201
+
+## create an invitation [/usergroups/invitation/create]
+### request [POST]
++ response 201
+
+## accept an invitation [/usergroups/invitation/accept]
+### accept [POST]
++ response 201
+
+## create a join request [/usergroups/joinrequest/create]
+### create [POST]
++ response 201
+
+## accept a join request [/usergroups/joinrequest/accept]
+### accept [POST]
++ response 201
+
+## deny a join request [/usergroups/joinrequest/deny]
+### deny [POST]
++ response 201

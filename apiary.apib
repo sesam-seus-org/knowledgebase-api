@@ -547,10 +547,9 @@ and the laste used note (notesLastNote).
 + Response 401
 
 ## Delete Notebooks [/notebooks/{uri}]
-+ Parameter
-    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%23a880bcca-65df-47a6-a730-251cbb218369`) ... uri of the notebook 
-
 ### Delete notebook [DELETE]
++ Parameter
+    + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%23a880bcca-65df-47a6-a730-251cbb218369`) ... uri of the notebook 
 
 + Response 204
 + Response 401
@@ -660,7 +659,7 @@ Notes are statically bound to notebooks. Notes could only be created you if tell
 ## Delete notes [/notes/{uri}]
 ### Delete a single bookmark [DELETE]
 + Parameter
-    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%238d0fd1d2-d668-42bc-99e5-234fec11700c`) ... uri of the note 
+    + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%238d0fd1d2-d668-42bc-99e5-234fec11700c`) ... uri of the note 
 
 + Response 204
 + Response 401
@@ -746,7 +745,7 @@ Note: It is not possible to edit the "bookmarkContainsBookmark"-property from th
 
 ## Delete a bookmarkgroup [/bookmarkgroups/{uri}]
 + Parameter
-    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmarkgroup 
+    + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmarkgroup 
 
 ### Delete a bookmarkgroup - includes deletion of contained bookmarks [DELETE]
 
@@ -1051,7 +1050,7 @@ Note: It is not possible to edit the "bookmarkContainsBookmark"-property from th
 ## Delete a single bookmark [/bookmarks/{uri}]
 ### Delete a single bookmark [DELETE]
 + Parameter
-    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
+    + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`, required) ... uri of the bookmark 
 
 + Response 204
 
@@ -1406,7 +1405,7 @@ The results will contained those tags that were given at last by any user, indep
 ### Retrieve all tags of the refered content-node [GET]
 The Result will contain all those tags that have been connected to the content-node (refered by the bookmark).
 + Parameter
-    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
+    + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
 
 + Response 200 (application/json)
     + Body
@@ -1757,7 +1756,8 @@ The Result will contain all those tags that have been connected to the content-n
 ### Retrieve recommended tags of a bookmark[GET]
 Starting with the existing tagging informations from the bookmark itself and the tagging informations of the content-node (refered by the bookmark) this method will return an example set of recommended tags that can be used to annotate the bookmark further. 
 + Parameter
-    + uri(uri, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
+  + uri (required, URL, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... encoded URI of ContentResource
+
 
 + Response 200 (application/json)
     + Body
@@ -2106,7 +2106,7 @@ Starting with the existing tagging informations from the bookmark itself and the
 ## Using the Free-Text Search [/search?text={text}&offset={offset}&limit={limit}]
 ### Retrieve Concepts by its name [GET]
 + Parameter
-    + text(required, string, `text=Nahr`) ... textual input 
+    + text (required, string, `text=Nahr`) ... textual input 
     + offset = `0` (optional, int, `5`) ... ignore the first n results
     + limit = `10` (optional, int, `10`) ... get the next n results
     
@@ -4662,3 +4662,741 @@ Creates a Concetp cloud for a given Concept.
                 ]
             }
     
+#group  Users
+
+controllers that effect users
+
+## user [/user]
+
+### add a new user [PUT]
+
++ request (application/json)
+    
+        {
+            "user":
+            {
+                "userLoginID":{"value":"uniqueID"}, 
+                "userEmail":{"value":"uniqueID@webserver.de"}, 
+                "userPassword":{"value":"xxxx"}
+            }
+        }
+
++ response 201 (application/json)
+
+    + body
+
+            {
+               "user":
+               {
+                   "userHasLearnProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#learnacf3ce4f-b566-454c-87bd-e75414570deb"
+                   },
+                   "userHasSettingsProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#37df3817-68a0-456d-99d9-7aa114f03b07"
+                   },
+                   "userHasSocialMediaProfil":
+                   {
+                       "uri": "http://sesam.mobi/data/user#smcf2db287-e084-43a5-b077-e9b01e80c1e7"
+                   },
+                   "userLoginID":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userNickname":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userOwnsNotebook":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/notes#nb4bd52ebb-6b8b-4eb2-922f-cd1bc14c7a93"
+                       }
+                   ],
+                   "userHasActivityProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#act963a28f9-53b5-4dd4-a8af-ebf50086908b"
+                   },
+                   "userEmail":
+                   {
+                       "value": "uniqueID@webserver.de",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+               }
+            }
+
+
+
+### modify user properties  [POST]
+Gives possibility to add or change literal values of its profile. 
+
++ request (application/json)
+
+        {
+                    "user":
+                    {
+                        "userLoginID":{"value":"uniqueID"}, 
+                        "userEmail":{"value":"uniqueID@webserver.de"}, 
+                        "userFirstname":{"value":"uniqueIDFirstName"},
+                        "userLastname":{"value":"uniqueIDLastName"},
+                        "userBiography":{"value":"bla bla bla"},
+                        "sesamPictureURL":[{"value":"http://realschule-heilsbronn.de/Dateien/baustelle.gif"}],
+                        "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                    }
+        }
+
++ response 200 (application/json)
+
+    + body
+
+            {
+               "user":
+               {
+                   "userHasLearnProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#learnacf3ce4f-b566-454c-87bd-e75414570deb"
+                   },
+                   "userHasSettingsProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#37df3817-68a0-456d-99d9-7aa114f03b07"
+                   },
+                   "userHasSocialMediaProfil":
+                   {
+                       "uri": "http://sesam.mobi/data/user#smcf2db287-e084-43a5-b077-e9b01e80c1e7"
+                   },
+                   "userLastname":
+                   {
+                       "value": "uniqueIDLastName"
+                   },
+                   "userLoginID":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userNickname":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userOwnsNotebook":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/notes#nb4bd52ebb-6b8b-4eb2-922f-cd1bc14c7a93"
+                       }
+                   ],
+                   "userBiography":
+                   {
+                       "value": "bla bla bla"
+                   },
+                   "userFirstname":
+                   {
+                       "value": "uniqueIDFirstName"
+                   },
+                   "userHasActivityProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#act963a28f9-53b5-4dd4-a8af-ebf50086908b"
+                   },
+                   "userEmail":
+                   {
+                       "value": "uniqueID@webserver.de"
+                   },
+                   "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+               }
+            }
+
+
+    
+   
+### retrieve personal user data [GET]
+
++ response 200 (application/json)
+
+    + body
+
+            {
+               "user":
+               {
+                   "userHasLearnProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#learnacf3ce4f-b566-454c-87bd-e75414570deb"
+                   },
+                   "userHasSettingsProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#37df3817-68a0-456d-99d9-7aa114f03b07"
+                   },
+                   "userHasSocialMediaProfil":
+                   {
+                       "uri": "http://sesam.mobi/data/user#smcf2db287-e084-43a5-b077-e9b01e80c1e7"
+                   },
+                   "userLastname":
+                   {
+                       "value": "uniqueIDLastName"
+                   },
+                   "userLoginID":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userNickname":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userOwnsNotebook":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/data/notes#nb4bd52ebb-6b8b-4eb2-922f-cd1bc14c7a93"
+                       }
+                   ],
+                   "userBiography":
+                   {
+                       "value": "bla bla bla"
+                   },
+                   "userFirstname":
+                   {
+                       "value": "uniqueIDFirstName"
+                   },
+                   "userHasActivityProfile":
+                   {
+                       "uri": "http://sesam.mobi/data/user#act963a28f9-53b5-4dd4-a8af-ebf50086908b"
+                   },
+                   "userEmail":
+                   {
+                       "value": "uniqueID@webserver.de"
+                   },
+                   "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+               }
+            }
+
+### delete the account [DELETE]
+
+deletes the user from kb
+
++ response 204
+
+## user settings [/user/settings]
+At the moment it will contain a nested profile: "PrivacySettingsProfile" that contains all the informations about the privacy level of the general properties of the user. 
+
+Each property has an uri that will be referenced by one of the users PropertyPolicy node. Such a node contains also a field named "userHasVisibilityPolicy" that will result in one of the following three visibility levels. 
+
+* http://sesam.mobi/user#hide (dont show this property to anyone)
+* http://sesam.mobi/user#toGroupMember (show this property only to members of one the groups, where i am member)
+* http://sesam.mobi/user#toEveryone (show this property to everyone - default value after registration)
+
+The property `userPrivacyPolicy` defines whether the user can be found by freetext search or not, using the same levels. 
+
+Those regulations will be evaluated inside the kb and only values that are allowed by the users will be visible to others...
+
+### get the settings profile [GET]
+Returns the full settings profile of the user. 
+
++ response 200 (application/json)
+    + body 
+    
+
+            {
+               "settingsProfile":
+               {
+                   "userHasPrivacySettingsProfile":
+                   {
+                       "userPropertyPolicy":
+                       [
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#DatatypeProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "picture URL",
+                                           "language": "en"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/ontology#pictureURL"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#propc450d5a5-d840-46c3-b12e-39937760e280"
+                           },
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#ObjectProperty"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "gender",
+                                           "language": "en"
+                                       },
+                                       {
+                                           "value": "Geschlecht",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/user#gender"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#prop7414e0da-f823-4a4a-9dc1-08fcb60cd559"
+                           },
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfsComment":
+                                   [
+                                       {
+                                           "value": "The user can be part of one or more user groups. Defines the connection to the group of which the user is a member of. ",
+                                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                       }
+                                   ],
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#ObjectProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "the user is in group",
+                                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/user#inGroup"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#prop6f1f19c5-2203-4d0d-bf8e-92ba39e13ee2"
+                           },
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#DatatypeProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "biography",
+                                           "language": "en"
+                                       },
+                                       {
+                                           "value": "Biographie",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/user#biography"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#prop61e96da7-0f66-4048-9a6e-f7ed000d3c1c"
+                           },
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#DatatypeProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "first name",
+                                           "language": "en"
+                                       },
+                                       {
+                                           "value": "Vorname",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/user#firstname"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#propb5b4e6f5-ab35-47f4-82b3-9b841534902c"
+                           },
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#DatatypeProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "last name",
+                                           "language": "en"
+                                       },
+                                       {
+                                           "value": "Nachname",
+                                           "language": "de"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/user#lastname"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#prop40e0319d-3ef0-4098-bde9-627be881633d"
+                           },
+                           {
+                               "userForProperty":
+                               {
+                                   "@class": "http.www.w3.org19990222_rdf_syntax_ns.Property",
+                                   "rdfType":
+                                   [
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty"
+                                       },
+                                       {
+                                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                           "uri": "http://www.w3.org/2002/07/owl#DatatypeProperty"
+                                       }
+                                   ],
+                                   "rdfsLabel":
+                                   [
+                                       {
+                                           "value": "unique email address",
+                                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/user#email"
+                               },
+                               "userVisibilityPolicy":
+                               {
+                                   "uri": "http://sesam.mobi/user#toEveryone"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PropertyPolicity"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#prop1367eeaf-d56a-44c9-a73c-06ce3c135f0a"
+                           }
+                       ],
+                       "userPrivacyPolicy":
+                       [
+                           {
+                               "@class": "http.sesam.mobi.user.VisibilityPolicy",
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#PrivacyPolicy"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#VisibilityPolicy"
+                                   }
+                               ],
+                               "rdfsLabel":
+                               [
+                                   {
+                                       "value": "visibility policy",
+                                       "language": "en"
+                                   },
+                                   {
+                                       "value": "Sichtbarkeitsregelung",
+                                       "language": "de"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/user#toEveryone"
+                           }
+                       ],
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/user#PrivacySettingProfile"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/user#UserProfile"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#330e58db-c439-4ea5-b044-c781704f5dbe"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/user#SettingsProfile"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/user#UserProfile"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#37df3817-68a0-456d-99d9-7aa114f03b07"
+               }
+            }
+        
+
+    
+

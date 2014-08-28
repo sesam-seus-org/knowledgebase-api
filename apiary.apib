@@ -4880,7 +4880,7 @@ deletes the user from kb
 
 # group User Settings
 
-## handle user settingsprofile [/user/settings]
+## SettingsProfile [/user/settings]
 At the moment it will contain a nested profile: "PrivacySettingsProfile" that contains all the informations about the privacy level of the general properties of the user. 
 
 Each property has an uri that will be referenced by one of the users PropertyPolicy node. Such a node contains also a field named "userHasVisibilityPolicy" that will result in one of the following three visibility levels. 
@@ -4893,10 +4893,8 @@ The property `userPrivacyPolicy` defines whether the user can be found by freete
 
 Those regulations will be evaluated inside the kb and only values that are allowed by the users will be visible to others...
 
-### get the settings profile [GET]
-Returns the full settings profile of the user. 
++ Model (application/json)
 
-+ response 200 (application/json)
     + body 
     
 
@@ -5399,6 +5397,13 @@ Returns the full settings profile of the user.
                }
             }
 
+### get the settings profile [GET]
+Returns the full settings profile of the user. 
+
+ + response 200
+ 
+    [SettingsProfile][]
+
 
 ### manipulate settings by using the whole settings node [POST]
 
@@ -5408,11 +5413,11 @@ for manipulating a single property use `/user/settings/property`
 
 + request (application/json) 
         
-    [][]
+    [SettingsProfile][]
 
-+ response 200 (application/json)
++ response 200 
 
-    [][]
+    [SettingsProfile][]
             
 ## change the personal rule for a single property [/user/settings/property]
 ### change the personal rule for a single property [POST]
@@ -5529,3 +5534,220 @@ for manipulating a single property use `/user/settings/property`
                }
             }
 
+#group user search
+
+## find users by name [/user/search?nickname={nickname}&firstname={firstname}&lastname={lastname}&offset={offset}&limit={limit}]
+
+Only properties are shown that are allowed by the users.
+
++ Parameter
+    + nickname (optional,String,`test`) ... nickname filter
+    + firstname (optional,String,`hans`) ... firstname filter
+    + lastname (optional,String,`peter`) ... lastname filter
+    + offset = `0` (optional,Integer,`5`) ... result offset
+    + limit = `10` (optional,Integer,`10`) ... result limit
+    
+
+### Get users for the given parameters [GET]
+
+Defining no parameters is allowed and will result in the first 10 users found. 
+
+Returns a list of users or an empty list if no user is found.
+
++ response 200 (application/json)
+
+    + body 
+
+            {
+               "users":
+               [
+                   {
+                       "userLastname":
+                       {
+                           "value": "Peter",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userNickname":
+                       {
+                           "value": "abc",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userFirstname":
+                       {
+                           "value": "Hans",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "abc@def.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#960d7b41-ccca-435c-8dbc-97677bb36a86"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "rgander",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "robin.gander@tu-dresden.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#845a9624-f7e2-4267-bdb0-8244a9f006e4"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "stefan2",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "stefan2@test.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#61d83a09-af04-4776-9801-96ae9560a845"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "erna",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "erna@web.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#e9b91ddc-01a8-4c4d-9131-f3d31d79378a"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "gsteuer",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "Grit.Steuer@tu-dresden.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#7a0b34cf-5616-413b-a3a1-ef0ba29f92fe"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "horst",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "horst@horst.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#08aad501-9c62-499b-bc37-8ee59f81f54e"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "elasius",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "elasius@gmx.net",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "stefan",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "stefan@test.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "klaus",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "torstenphilipp@gmx.de",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#e99b9958-694c-4c72-a77a-2ddd52a6aca9"
+                   },
+                   {
+                       "userNickname":
+                       {
+                           "value": "ralf",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "info@ralf.me",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "uri": "http://sesam.mobi/data/user#5615a785-e58d-406d-8beb-fafddc9d7ef6"
+                   }
+               ]
+            }
+
+## view another user [/user/{uri}]
+
+Only properties are shown that are allowed by the user.
+
++ Parameter
+    + uri (required, URL-encoded URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fuser%23usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e`) ... URI of an existing user.
+    
+### View a specific users profile [GET]
+
++ response 200 (application/json)
+    + body
+    
+
+
+            {
+               "user":
+               {
+                   "userLastname":
+                   {
+                       "value": "uniqueIDLastName",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userNickname":
+                   {
+                       "value": "uniqueID",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userBiography":
+                   {
+                       "value": "bla bla bla",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userFirstname":
+                   {
+                       "value": "uniqueIDFirstName",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userEmail":
+                   {
+                       "value": "uniqueID@webserver.de",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+               }
+            }
+
++ response 404 

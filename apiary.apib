@@ -5799,3 +5799,22 @@ Only properties are shown that are allowed by the user.
 ## deny a join request [/usergroups/joinrequest/deny]
 ### deny [POST]
 + response 201
+
+# group Activity log
+Gets activity logfile in csv-format.
+
+## get log global log file [/activitylog/global/{date}]
+Gets the file for each request and user
+### get[GET]
++ Parameter
+    + date ... yyyy-mm-dd (e.g. /activitylog/global/2014-08-29)
++ response 200
++ response 404
+
+## get log global log file [/activitylog/users/{nickname}]
+Gets the file for each request of the spacific user
+### get[GET]
++ Parameter
+    + nickname ... yyyy-mm-dd (e.g. /activitylog/users/Hans)
++ response 200
++ response 404

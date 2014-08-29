@@ -5208,10 +5208,14 @@ allows only to change literal values such as "rdfsComment" or "userGroupName"
 ## on single group [/usergroups/{uri}]
 
 ### get the group [GET]
-+ response 200
 
-    + body (application/json)
-    
+Returns the Group with all its members (resolved by their individual settings) and an optional group membership node describing the roles of the user in this group. 
+
+If the user is not a member of this group the members will be hidden and the response will not contain the groupMembership property.
+
++ response 200 (application/json)
+   + body 
+
             {
                "groupMembership":
                {

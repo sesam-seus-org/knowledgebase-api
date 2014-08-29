@@ -5800,20 +5800,20 @@ Only properties are shown that are allowed by the user.
 ### deny [POST]
 + response 201
 
-# group Activity log
+# group Activity log 
 Gets activity logfile in csv-format.
 
-## get log global log file [/activitylog/global/{date}]
+## Get global log file [/activitylog/global/{date}]
 Gets the file for each request and user
-### get[GET]
+### global[GET]
 + Parameter
     + date ... yyyy-mm-dd (e.g. /activitylog/global/2014-08-29)
 + response 200
 + response 404
 
-## get log global log file [/activitylog/users/{nickname}]
-Gets the file for each request of the spacific user
-### get[GET]
+## Get users log file [/activitylog/users/{nickname}]
+Gets the file for each request of the specific user
+### users[GET]
 + Parameter
     + nickname ... yyyy-mm-dd (e.g. /activitylog/users/Hans)
 + response 200

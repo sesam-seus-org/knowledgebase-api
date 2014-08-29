@@ -5090,30 +5090,285 @@ Only properties are shown that are allowed by the user.
 
 # group Usergroups
 
+## EmptyGroup [/is/there/anotherway/to/declare/resource/models?]
+
++ Model (application/json)
+
+        {
+           "userGroup":
+           {
+               "@class": "http.sesam.mobi.learn.LearnGroup",
+               "userHasOwner":
+               {
+                   "userEmail":
+                   {
+                       "value": "elasius@gmx.net",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userNickname":
+                   {
+                       "value": "elasius",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "userInGroup":
+                   [
+                       {
+                           "@class": "http.sesam.mobi.learn.LearnGroup",
+                           "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+               },
+               "userGroupName":
+               {
+                   "value": "Special Group",
+                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+               },
+               "sesamCreated":
+               {
+                   "value": "2014-08-29T02:33:50",
+                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+               },
+               "sesamLastModified":
+               {
+                   "value": "2014-08-29T02:33:50",
+                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+               },
+               "sesamSize":
+               {
+                   "value": 1,
+                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+               },
+               "rdfType":
+               [
+                   {
+                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                       "uri": "http://sesam.mobi/user#UserGroup"
+                   },
+                   {
+                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                   },
+                   {
+                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                       "uri": "http://www.w3.org/2002/07/owl#Thing"
+                   },
+                   {
+                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                       "uri": "http://sesam.mobi/learn#LearnGroup"
+                   }
+               ],
+               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+           }
+        }
+        
+## EmptyGroupWithMember [/is/there/anotherway/to/declare/resource/models/or/not?]
+
+
 
 ## CreateGroup [/usergroups/create]
 
 ### found a new group [POST]
 
-+ response 201
++ request (application/json)
+
+        {
+            "userGroup":
+            {
+                "userGroupName":
+                {
+                    "value":"Special Group"
+                }
+            }
+        }
+
++ response 200
+
+    [EmptyGroup][]
 
 ## manage usergroups [/usergroups]
 
 ### get all own groups [GET]
 
+Returns all groups of the user (own groups and joined groups) and the individual roles for each group
+
 + response 201
 
 ### modify a group [POST]
 
-+ response 201
+allows only to change literal values such as "rdfsComment" or "userGroupName"
+
++ response 200
+
+    [EmptyGroup][]
+
+
+
 
 ## on single group [/usergroups/{uri}]
 
 ### get the group [GET]
-+ response 201
++ response 200
+
+    + body (application/json)
+    
+            {
+               "groupMembership":
+               {
+                   "userIndividualRole":
+                   [
+                       {
+                           "rdfsLabel":
+                           [
+                               {
+                                   "value": "kann Einladungen verschicken",
+                                   "language": "de"
+                               },
+                               {
+                                   "value": "can invite",
+                                   "language": "en"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/user#canInvite"
+                       },
+                       {
+                           "rdfsLabel":
+                           [
+                               {
+                                   "value": "kann Mitglieder rauswerfen",
+                                   "language": "de"
+                               },
+                               {
+                                   "value": "can throw out",
+                                   "language": "en"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/user#canThrowOut"
+                       },
+                       {
+                           "rdfsLabel":
+                           [
+                               {
+                                   "value": "kann Rollen verteilen",
+                                   "language": "de"
+                               },
+                               {
+                                   "value": "can modify Roles",
+                                   "language": "en"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/user#canModifyRoles"
+                       }
+                   ],
+                   "userForGroup":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearnGroup",
+                       "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                   },
+                   "uri": "http://sesam.mobi/data/user#gr25a5c0bb-a20e-4a25-8e40-877f98d67133"
+               },
+               "userGroup":
+               {
+                   "@class": "http.sesam.mobi.learn.LearnGroup",
+                   "userHasOwner":
+                   {
+                       "userNickname":
+                       {
+                           "value": "elasius",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "elasius@gmx.net",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userInGroup":
+                       [
+                           {
+                               "@class": "http.sesam.mobi.learn.LearnGroup",
+                               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                   },
+                   "userHasMember":
+                   [
+                       {
+                           "userNickname":
+                           {
+                               "value": "elasius",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userEmail":
+                           {
+                               "value": "elasius@gmx.net",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userInGroup":
+                           [
+                               {
+                                   "@class": "http.sesam.mobi.learn.LearnGroup",
+                                   "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                       }
+                   ],
+                   "userGroupName":
+                   {
+                       "value": "Special Group",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-08-29T02:33:50",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamCreated":
+                   {
+                       "value": "2014-08-29T02:33:50",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamSize":
+                   {
+                       "value": 1,
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/user#UserGroup"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/learn#LearnGroup"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+               }
+            }
 
 ### delete the group [DELETE]
-+ response 201
+
+Deletes the group with all the consequences. (Other users will leave this group and a learning path that was restriced to this group before will be open after that. 
+
+Deleting a group is only allowed for the member of this group. 
+
++ response 204
+
+
+
++ response 403
+
 
 ## search for groups [/usergroups/search?groupname={groupname}&offset={offset}&limit={limit}]
 ### get groups [GET]

@@ -5930,15 +5930,32 @@ Gets activity logfile in csv-format.
 ## Get global log file [/activitylog/global/{date}]
 Gets the file for each request and user
 ### global[GET]
+
+Use the accept header to get the result as JSON. Otherwise the result will be returned as csv file.
+
 + Parameter
     + date ... yyyy-mm-dd (e.g. /activitylog/global/2014-08-29)
++ request 
+    + Headers 
+        
+            Accept: application/json
+
 + response 200
 + response 404
+
 
 ## Get users log file [/activitylog/users/{nickname}]
 Gets the file for each request of the specific user
 ### users[GET]
+Use the accept header to get the result as JSON. Otherwise the result will be returned as csv file.
+
 + Parameter
     + nickname ... the nickname of the user (e.g. /activitylog/users/Hans)
+    
++ request 
+    + Headers 
+        
+            Accept: application/json
+
 + response 200
 + response 404

@@ -5900,6 +5900,30 @@ After that action the user is member of the group and the message state of the i
 ### deny [POST]
 + response 201
 
+## exit group [/usergroups/exit]
+### exit group [POST]
+
+The user can leave a group, if he is not a owner of this group.  
+
++ request (application/json)
+
+        {
+            "userGroup":
+            {
+                "uri":"http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+            }
+        }
+
+
++ response 204
+
++ response 403
+
+    + body
+    
+            You cannot leave a group, you are owner of.
+
+
 # group Activity log 
 Gets activity logfile in csv-format.
 

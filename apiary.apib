@@ -5933,6 +5933,21 @@ Gets the file for each request and user
 
 Use the accept header to get the result as JSON. Otherwise the result will be returned as csv file.
 
+Each log Entry consists of a ";"-separated line
+
+The names of the fields are declared in the first line. 
+
+#### Contained Informations
+
+* Start .... Time when request started
+* End .... Time when request ended
+* User .... The user nickname if known or "unkown"
+* Client .... Content of http-header User-Agent, can be used to identify mobile or desktop usage
+* Resource .... Requested resource for example /user/search
+* Activity .... Human Readable translation for PUT, POST, GET
+* Query .... The query string after ? if there was one
+* Payload .... The deliverd entity AnyContentAsEmpt
+
 + Parameter
     + date ... yyyy-mm-dd (e.g. /activitylog/global/2014-08-29)
 + request 
@@ -5940,7 +5955,21 @@ Use the accept header to get the result as JSON. Otherwise the result will be re
         
             Accept: application/json
 
-+ response 200
++ response 200 (applcation/json)
+    + body 
+    
+            {
+                "content":"Start;End;User;Client;Resource;Activity;Query;Payload;
+                2014-09-03T10:37:31.172+0200;2014-09-03T10:37:31.910+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
+                2014-09-03T10:37:31.990+0200;2014-09-03T10:37:32.319+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
+                2014-09-03T10:38:44.453+0200;2014-09-03T10:38:45.463+0200;elasius;\"LernAPP/Version 1.0.0\";/user/search;Read;nickname=el;AnyContentAsEmpt;
+                2014-09-03T10:38:45.551+0200;2014-09-03T10:38:46.076+0200;elasius;\"LernAPP/Version 1.0.0\";/user/search;Read;nickname=el;AnyContentAsEmpt;
+                2014-09-03T10:39:12.929+0200;2014-09-03T10:39:17.442+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Create;;{\"notebooks\":[{\"sesamHasTitle\":{\"value\":\"hallo Welt\"}}]};
+                2014-09-03T10:39:12.924+0200;2014-09-03T10:39:17.452+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Create;;{\"notebooks\":[{\"sesamHasTitle\":{\"value\":\"hallo Welt\"}}]};
+                2014-09-03T10:43:27.778+0200;2014-09-03T10:43:28.209+0200;elasius;\"Lernbrowser/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
+                "
+            }
+
 + response 404
 
 
@@ -5948,6 +5977,21 @@ Use the accept header to get the result as JSON. Otherwise the result will be re
 Gets the file for each request of the specific user
 ### users[GET]
 Use the accept header to get the result as JSON. Otherwise the result will be returned as csv file.
+
+Each log Entry consists of a ";"-separated line
+
+The names of the fields are declared in the first line. 
+
+#### Contained Informations
+
+* Start .... Time when request started
+* End .... Time when request ended
+* User .... The user nickname if known or "unkown"
+* Client .... Content of http-header User-Agent, can be used to identify mobile or desktop usage
+* Resource .... Requested resource for example /user/search
+* Activity .... Human Readable translation for PUT, POST, GET
+* Query .... The query string after ? if there was one
+* Payload .... The deliverd entity AnyContentAsEmpt
 
 + Parameter
     + nickname ... the nickname of the user (e.g. /activitylog/users/Hans)
@@ -5957,5 +6001,18 @@ Use the accept header to get the result as JSON. Otherwise the result will be re
         
             Accept: application/json
 
-+ response 200
++ response 200 (application/json)
+    + body
+    
+            {
+                "content":"Start;End;User;Client;Resource;Activity;Query;Payload;
+                2014-09-03T10:37:31.172+0200;2014-09-03T10:37:31.910+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
+                2014-09-03T10:37:31.990+0200;2014-09-03T10:37:32.319+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
+                2014-09-03T10:38:44.453+0200;2014-09-03T10:38:45.463+0200;elasius;\"LernAPP/Version 1.0.0\";/user/search;Read;nickname=el;AnyContentAsEmpt;
+                2014-09-03T10:38:45.551+0200;2014-09-03T10:38:46.076+0200;elasius;\"LernAPP/Version 1.0.0\";/user/search;Read;nickname=el;AnyContentAsEmpt;
+                2014-09-03T10:39:12.929+0200;2014-09-03T10:39:17.442+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Create;;{\"notebooks\":[{\"sesamHasTitle\":{\"value\":\"hallo Welt\"}}]};
+                2014-09-03T10:39:12.924+0200;2014-09-03T10:39:17.452+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Create;;{\"notebooks\":[{\"sesamHasTitle\":{\"value\":\"hallo Welt\"}}]};
+                "
+            }
+ 
 + response 404

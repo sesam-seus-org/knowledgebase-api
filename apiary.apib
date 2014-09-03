@@ -2,9 +2,29 @@ FORMAT: 1A
 HOST: http://www.google.com
 
 # Knowledgebase
-Notes API is a *short texts saving* service similar to its physical paper presence on your table.
 
-# Group Error Codes
+
+# Some basic Informatios
+
+#### Resource model
+
+For understanding the structure of the JSON-Objects it can be helpful to understand the ontology models behind those objects. Look at http://is63089.inf.tu-dresden.de/trac/SESAM/wiki/Wissensbasis#DokumentationModelle to get an idea over those models. The JSON String representing instances of those models is generated via the semantic-access-layer. To understand the serialization the following dokumentation can be helpful http://is63089.inf.tu-dresden.de/trac/SESAM/wiki/DataAccessLayer#ErzeugteKlassenstruktur
+
+
+
+#### Usage of HTTP-Headers: 
+
+ - User-Agent .... Required to distiguish between Clients (i.e. App and Browser). If Possible includes a Version. Example : `Lernbrowser/Version 1.0.0`
+ - Authorization .... To identify the user the basic aúth header is used. The value of this header starts with: `Basic ` followed by the base64 encoded version of `username:password`
+ - Content-Type .... For commiting some json-content the Header must be set to `application/json` to ensure the knowledge base to get the content as JSON. 
+ - Accept .... The activitylog endpoints return a log file if the value of this header does not contain `application/json` If this is contained the endpoinds will wrap the file content as JSON String.
+ 
+
+# Group Error Codes 
+
+#### depricated
+
+The usage of the error-codes is not necessary any more. 
 
 ## Retrieve a List of supported error message formats [/errorcodes]
 Lists all current supported error codes. The error message that belong to the error code is fix. The error details and the arguments may vary from case to case and are for humans not for machines ;)

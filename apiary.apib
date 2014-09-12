@@ -3302,9 +3302,9 @@ The vocabulary is defined by the ontology `content.ttl`. That includes the Media
 ## Content resources [/contentdata]
 + Model (application/json)
 
-            [{
-                "uri": "http://www.google.de"
-            }]
+        {
+            "url": "http://google.de"
+        }
 
 ### Import content resources [POST]
 
@@ -3315,7 +3315,16 @@ The vocabulary is defined by the ontology `content.ttl`. That includes the Media
 
 + Response 201
 
-    [Content resources][]
+        {
+            "contentResource": {
+                "@class": "http.sesam.mobi.content.Website",
+                "sesamHasTitle": {
+                    "value": "Google",
+                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                },
+                "uri": "http://google.de"
+            }
+        }
 
 
 + Response 400

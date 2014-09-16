@@ -6045,3 +6045,2230 @@ The names of the fields are declared in the first line.
             }
  
 + response 404
+
+# group Comments
+
+## add Comment [/comment]
+add a new Comment
+
+### add Comment [PUT]
+
++ Request (application/json)
+    + Body
+    
+            {
+                "comment": {
+                    "sesamContentHTML": {
+                        "value": "das ist ein test"
+                    },
+                    "commentsCommentFor": {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "uri": "http://www.google.de"
+                    }
+                }
+            }
+
++ response 201 (application/json)
+    + Body
+    
+            {
+                "comment": {
+                    "commentsCommentFor": {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "commentsHasComments": [
+                            {
+                                "uri": "http://sesam.mobi/data/content#2285bbda-dde3-40af-afc0-bcca0625bad3"
+                            }
+                        ],
+                        "uri": "http://www.google.de"
+                    },
+                    "sesamCreated": {
+                        "value": "2014-09-16T03:23:47",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-09-16T03:23:47",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                    },
+                    "sesamContentHTML": {
+                        "value": "das ist ein test"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/comments#Comment"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/message#Message"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#2285bbda-dde3-40af-afc0-bcca0625bad3"
+                }
+            }
+
+## get Comments [/comment/{uri}]
+get all Comments
+
+### get Comments [GET]
+
++ Parameter
+  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of ContentResource
+  
++ response 200 (application/json)
+    + Body
+    
+            {
+                "comments": [
+                    {
+                        "commentsCommentFor": {
+                            "@class": "http.sesam.mobi.content.Website",
+                            "commentsHasComments": [
+                                {
+                                    "uri": "http://sesam.mobi/data/content#2285bbda-dde3-40af-afc0-bcca0625bad3"
+                                },
+                                {
+                                    "sesamContentHTML": {
+                                        "value": "das ist ein test3",
+                                        "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                    },
+                                    "rdfType": [
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "uri": "http://sesam.mobi/message#Message"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "uri": "http://sesam.mobi/comments#Comment"
+                                        }
+                                    ],
+                                    "uri": "http://sesam.mobi/data/content#9b86da92-caf9-4c7a-aeed-03599698496d"
+                                },
+                                {
+                                    "uri": "http://sesam.mobi/data/content#f0ebc9d2-c253-44e2-9d9f-5ad0f71408b0"
+                                },
+                                {
+                                    "uri": "http://sesam.mobi/data/content#01756af3-227b-489c-96ec-1ed2a7c5b07e"
+                                },
+                                {
+                                    "sesamContentHTML": {
+                                        "value": "das ist ein test2",
+                                        "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                    },
+                                    "rdfType": [
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/message#Message"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/message#Message"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/comments#Comment"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/comments#Comment"
+                                        }
+                                    ],
+                                    "uri": "http://sesam.mobi/data/content#44768b45-6513-4846-b1d7-6fc4eea38af1"
+                                },
+                                {
+                                    "commentsHasAnswers": [
+                                        {
+                                            "uri": "http://sesam.mobi/data/content#25594327-31f5-4ad1-a968-13db7aad8e24"
+                                        },
+                                        {
+                                            "uri": "http://sesam.mobi/data/content#84ec2e95-c02e-437a-b2c2-bd8f82295d7e"
+                                        }
+                                    ],
+                                    "sesamContentHTML": {
+                                        "value": "das ist ein test 5",
+                                        "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                    },
+                                    "rdfType": [
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/message#Message"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/message#Message"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/comments#Comment"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/comments#Comment"
+                                        }
+                                    ],
+                                    "uri": "http://sesam.mobi/data/content#7c3729b7-01fb-43a8-80e8-408e254fd633"
+                                },
+                                {
+                                    "sesamContentHTML": {
+                                        "value": "das ist ein test 4",
+                                        "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                    },
+                                    "rdfType": [
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/message#Message"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/message#Message"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/comments#Comment"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/comments#Comment"
+                                        }
+                                    ],
+                                    "uri": "http://sesam.mobi/data/content#da4638ab-1acb-43b0-bd2d-494f13957b40"
+                                },
+                                {
+                                    "sesamContentHTML": {
+                                        "value": "das ist ein test",
+                                        "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                    },
+                                    "rdfType": [
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/message#Message"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/message#Message"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/comments#Comment"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/comments#Comment"
+                                        }
+                                    ],
+                                    "uri": "http://sesam.mobi/data/content#170c1cc8-6a80-4c69-ad45-a71430534e3b"
+                                },
+                                {
+                                    "sesamContentHTML": {
+                                        "value": "das ist ein test",
+                                        "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                    },
+                                    "rdfType": [
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/message#Message"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/message#Message"
+                                        },
+                                        {
+                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                            "rdfsSubClassOf": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "uri": "http://sesam.mobi/comments#Comment"
+                                                }
+                                            ],
+                                            "rdfType": [
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                },
+                                                {
+                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                    "rdfsSubClassOf": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "rdfType": [
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "rdfsSubClassOf": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                }
+                                                            ],
+                                                            "rdfType": [
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                                },
+                                                                {
+                                                                    "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                                }
+                                                            ],
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+                                                        },
+                                                        {
+                                                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                        }
+                                                    ],
+                                                    "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                                }
+                                            ],
+                                            "uri": "http://sesam.mobi/comments#Comment"
+                                        }
+                                    ],
+                                    "uri": "http://sesam.mobi/data/content#1b074099-a34b-400d-a973-1d208c674200"
+                                },
+                                {
+                                    "uri": "http://sesam.mobi/data/content#26f11275-b675-498e-92a2-2d882fe47ebc"
+                                }
+                            ],
+                            "uri": "http://www.google.de"
+                        },
+                        "uri": "http://sesam.mobi/data/content#2285bbda-dde3-40af-afc0-bcca0625bad3"
+                    },
+                    {
+                        "sesamContentHTML": {
+                            "value": "das ist ein test3",
+                            "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                        },
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/message#Message"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/comments#Comment"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/content#9b86da92-caf9-4c7a-aeed-03599698496d"
+                    }
+                ]
+            }
+
+## add SubComment [/subcomment]
+add a new Comment for a Comment
+
+### add SubComment [PUT]
+
++ Request (application/json)
+    + Body
+    
+            {
+                "comment": {
+                    "sesamContentHTML": {
+                        "value": "unterkommentar"
+                    },
+                    "commentsAnswerFor": {
+                        "uri": "http://sesam.mobi/data/content#7c3729b7-01fb-43a8-80e8-408e254fd633"
+                    }
+                }
+            }
+
++ response 201 (application/json)
+    + Body
+    
+            {
+                "comment": {
+                    "commentsAnswerFor": {
+                        "commentsHasAnswers": [
+                            {
+                                "uri": "http://sesam.mobi/data/content#f7e5ae0b-d3b2-4b87-8b7e-f7e29e2b8279"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/content#7c3729b7-01fb-43a8-80e8-408e254fd633"
+                    },
+                    "sesamCreated": {
+                        "value": "2014-09-16T03:38:05",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                    },
+                    "sesamLastModified": {
+                        "value": "2014-09-16T03:38:05",
+                        "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                    },
+                    "sesamContentHTML": {
+                        "value": "unterkommentar"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/comments#Comment"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/message#Message"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/content#f7e5ae0b-d3b2-4b87-8b7e-f7e29e2b8279"
+                }
+            }
+
+## get SubComments [/subcomment/{uri}]
+get all Comments for a Comment
+
+### get SubComments [GET]
+
++ Parameter
+  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of ContentResource
+  
++ response 200 (application/json)
+    + Body
+    
+            

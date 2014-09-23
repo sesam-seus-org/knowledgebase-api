@@ -8762,9 +8762,604 @@ get all Comments for a Comment
 ### get SubComments [GET]
 
 + Parameter
-  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of ContentResource
+  + uri (required, URL, `http%3A%2F%2Fwww.google.de`) ... encoded URI of Comment
+  
++ response 200 (application/json)
+    + Body
+
+# group Markers
+
+## add Marker [/markers]
+add a new Marker to a Note
+
+### add Marker [PUT]
+
++ Request (application/json)
+    + Body
+    
+            {
+                "marker": {
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "notesR": {
+                            "value": 0
+                        },
+                        "notesG": {
+                            "value": 255
+                        },
+                        "notesB": {
+                            "value": 0
+                        }
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    }
+                },
+                "note": {
+                    "uri": "http://sesam.mobi/data/notes#d25fe7c3-5922-4c0b-be6d-66fd49cc6d55"
+                }
+            }
+
++ response 201 (application/json)
+    + Body
+    
+            {
+                "marker": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "uri": "http://sesam.mobi/data/notes#000255000"
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#Marker"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/notes#5f840444-5e03-43a0-bee4-c151b1eecac4"
+                }
+            }
+
+## get Markers [/markers/{uri}]
+get all Markers for a Note
+
+### get Markers [GET]
+
++ Parameter
+  + uri (required, URL, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%23d25fe7c3-5922-4c0b-be6d-66fd49cc6d55`) ... encoded URI of a Note
   
 + response 200 (application/json)
     + Body
     
-            
+            {
+                "markers": [
+                    {
+                        "notesEndIndex": {
+                            "value": 8,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesHasColor": {
+                            "@class": "http.sesam.mobi.notes.RGBColor",
+                            "uri": "http://sesam.mobi/data/notes#125000000"
+                        },
+                        "notesStartIndex": {
+                            "value": 0,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesTextContent": {
+                            "value": "Beispiel",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#Marker"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/notes#0568468d-1b74-4354-bb35-ed0e1e4ae335"
+                    }
+                ]
+            }
+
+# group Flags
+
+## add Flag [/flags]
+add a new Flag to a Note
+
+### add Favourite [PUT]
+add a new Favourite Flag
+
++ Request (application/json)
+    + Body
+    
+            {
+                "favourite": {
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "notesR": {
+                            "value": 0
+                        },
+                        "notesG": {
+                            "value": 255
+                        },
+                        "notesB": {
+                            "value": 0
+                        }
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    }
+                },
+                "note": {
+                    "uri": "http://sesam.mobi/data/notes#d25fe7c3-5922-4c0b-be6d-66fd49cc6d55"
+                }
+            }
+
++ response 201 (application/json)
+    + Body
+    
+            {
+                "flag": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "uri": "http://sesam.mobi/data/notes#000255000"
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#Favourite"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#Flag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/notes#2433e62f-b97f-40ce-9592-da202bd3cd1a"
+                },
+                "favourite": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    }
+                }
+            }
+
+### add ConceptFlag [PUT]
+add a new ConceptFlag
+
++ Request (application/json)
+    + Body
+    
+            {
+                "conceptFlag": {
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "notesR": {
+                            "value": 0
+                        },
+                        "notesG": {
+                            "value": 255
+                        },
+                        "notesB": {
+                            "value": 0
+                        }
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    },
+                    "sesamAffectsConcept": [
+                        {
+                            "uri": "http://sesam.mobi/data/concepts#84e837"
+                        }
+                    ]
+                },
+                "note": {
+                    "uri": "http://sesam.mobi/data/notes#d25fe7c3-5922-4c0b-be6d-66fd49cc6d55"
+                }
+            }
+
++ response 201 (application/json)
+    + Body
+    
+            {
+                "flag": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "uri": "http://sesam.mobi/data/notes#000255000"
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    },
+                    "sesamAffectsConcept": [
+                        {
+                            "uri": "http://sesam.mobi/data/concepts#84e837"
+                        }
+                    ],
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#Flag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#ConceptFlag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/notes#e70b1a24-c4a5-446d-bbe4-9f80f160b5fc"
+                },
+                "conceptFlag": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    }
+                }
+            }
+
+### add GeoFlag [PUT]
+add a new GeoFlag
+
++ Request (application/json)
+    + Body
+    
+            {
+                "geoFlag": {
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "notesR": {
+                            "value": 0
+                        },
+                        "notesG": {
+                            "value": 255
+                        },
+                        "notesB": {
+                            "value": 0
+                        }
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    },
+                    "geoLocation": [
+                        {
+                            "geoLat": [
+                                {
+                                    "value": 12
+                                }
+                            ],
+                            "geoLong": [
+                                {
+                                    "value": 22
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "note": {
+                    "uri": "http://sesam.mobi/data/notes#d25fe7c3-5922-4c0b-be6d-66fd49cc6d55"
+                }
+            }
+
++ response 201 (application/json)
+    + Body
+
+            {
+                "flag": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesHasColor": {
+                        "@class": "http.sesam.mobi.notes.RGBColor",
+                        "uri": "http://sesam.mobi/data/notes#000255000"
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    },
+                    "rdfType": [
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#Flag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://www.w3.org/2002/07/owl#Thing"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#GEOFlag"
+                        },
+                        {
+                            "@class": "http.www.w3.org200001.rdf_schema.Class",
+                            "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                        }
+                    ],
+                    "geoLocation": [
+                        {
+                            "@class": "http.www.w3.org200301.geo.wgs84_pos.SpatialThing",
+                            "geoLat": [
+                                {
+                                    "value": "12"
+                                }
+                            ],
+                            "geoLong": [
+                                {
+                                    "value": "22"
+                                }
+                            ],
+                            "uri": "http://sesam.mobi/data/notes#cbb20213-d036-4b17-bdd4-5d989fd65770"
+                        }
+                    ],
+                    "uri": "http://sesam.mobi/data/notes#81287f1e-8cbb-4d6e-8f2c-f7fc485611f3"
+                },
+                "geoFlag": {
+                    "notesEndIndex": {
+                        "value": 8
+                    },
+                    "notesStartIndex": {
+                        "value": 0
+                    },
+                    "notesTextContent": {
+                        "value": "Beispiel"
+                    }
+                }
+            }
+
+## get Flags [/flags/{uri}]
+get all Flags for a Note
+
+### get Flags [GET]
+
++ Parameter
+  + uri (required, URL, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fnotes%23d25fe7c3-5922-4c0b-be6d-66fd49cc6d55`) ... encoded URI of a Note
+
++ response 200 (application/json)
+    + Body
+    
+            {
+                "flags": [
+                    {
+                        "notesEndIndex": {
+                            "value": 8,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesHasColor": {
+                            "@class": "http.sesam.mobi.notes.RGBColor",
+                            "uri": "http://sesam.mobi/data/notes#255000000"
+                        },
+                        "notesStartIndex": {
+                            "value": 0,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesTextContent": {
+                            "value": "Beispiel",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "sesamAffectsConcept": [
+                            {
+                                "uri": "http://sesam.mobi/data/concepts#84e837"
+                            }
+                        ],
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#ConceptFlag"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#Flag"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/notes#45d3b576-ed9e-4b34-b150-665bb2a1b754"
+                    },
+                    {
+                        "notesEndIndex": {
+                            "value": ,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesHasColor": {
+                            "@class": "http.sesam.mobi.notes.RGBColor",
+                            "uri": "http://sesam.mobi/data/notes#255000000"
+                        },
+                        "notesStartIndex": {
+                            "value": 0,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesTextContent": {
+                            "value": "Beispiel",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#Flag"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#Favourite"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/notes#6fc8b70d-25d0-426f-b08d-9cd0d7ffe56c"
+                    },
+                    {
+                        "notesEndIndex": {
+                            "value": 8,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesHasColor": {
+                            "@class": "http.sesam.mobi.notes.RGBColor",
+                            "uri": "http://sesam.mobi/data/notes#000255000"
+                        },
+                        "notesStartIndex": {
+                            "value": 0,
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
+                        },
+                        "notesTextContent": {
+                            "value": "Beispiel",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#Flag"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#GEOFlag"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/notes#MarkerOrFlag"
+                            }
+                        ],
+                        "geoLocation": [
+                            {
+                                "@class": "http.www.w3.org200301.geo.wgs84_pos.SpatialThing",
+                                "uri": "http://sesam.mobi/data/notes#cbb20213-d036-4b17-bdd4-5d989fd65770"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/notes#81287f1e-8cbb-4d6e-8f2c-f7fc485611f3"
+                    }
+                ]
+            }

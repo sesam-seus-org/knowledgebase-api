@@ -8773,6 +8773,15 @@ get all Comments for a Comment
 add a new Marker to a Note
 
 ### add Marker [PUT]
+#### Minimum Properties 
++ "notesHasColor"
+  + "notesR"
+  + "notesG"
+  + "notesB"
++ "notesStartIndex"
++ "notesEndIndex"
++ "notesTextContent"
++ "note"
 
 + Request (application/json)
     + Body
@@ -8907,6 +8916,16 @@ add a new Flag to a Note
 ### add Favourite [PUT]
 add a new Favourite Flag
 
+#### Minimum Properties 
++ "notesHasColor"
+  + "notesR"
+  + "notesG"
+  + "notesB"
++ "notesStartIndex"
++ "notesEndIndex"
++ "notesTextContent"
++ "note"
+
 + Request (application/json)
     + Body
     
@@ -8996,6 +9015,17 @@ add a new Favourite Flag
 
 ### add ConceptFlag [PUT]
 add a new ConceptFlag
+
+#### Minimum Properties 
++ "notesHasColor"
+  + "notesR"
+  + "notesG"
+  + "notesB"
++ "notesStartIndex"
++ "notesEndIndex"
++ "notesTextContent"
++ "sesamAffectsConcept"
++ "note"
 
 + Request (application/json)
     + Body
@@ -9096,6 +9126,19 @@ add a new ConceptFlag
 
 ### add GeoFlag [PUT]
 add a new GeoFlag
+
+#### Minimum Properties 
++ "notesHasColor"
+  + "notesR"
+  + "notesG"
+  + "notesB"
++ "notesStartIndex"
++ "notesEndIndex"
++ "notesTextContent"
++ "geoLocation"
+  + "geoLat"
+  + "geoLong"
++ "note"
 
 + Request (application/json)
     + Body

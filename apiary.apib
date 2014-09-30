@@ -5613,6 +5613,541 @@ Only properties are shown that are allowed by the user.
 
 + response 404 
 
+# group Messages
+
+## send a message [/messages/send]
+
+Sends a message to a list of receivers or to a specific group. 
+
+#### Minimum Properties: 
+
+ * sesamContentHTML ... to represent the message content
+
+ * messageReceiver or userForGroup ... to determine the receiving entities. If sending to a group it is neccessary to be member of the given group
+
+### Send a Message [POST]
+
++ Request (application/json)
+    
+        {
+            "message":
+            {
+                "sesamContentHTML":
+                {
+                    "value":"Hallo"
+                }, 
+                "messageReceiver":
+                [
+                    {
+                        "uri":"http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                    }
+                ]
+            }
+        }
+
++ Response 200 (application/json)
+    + Body
+
+
+            {
+               "message":
+               {
+                   "messageReceiver":
+                   [
+                       {
+                           "userBiography":
+                           {
+                               "value": "bla bla bla",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userFirstname":
+                           {
+                               "value": "uniqueIDFirstName",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userLastname":
+                           {
+                               "value": "uniqueIDLastName",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userNickname":
+                           {
+                               "value": "uniqueID",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userEmail":
+                           {
+                               "value": "uniqueID@webserver.de",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                       }
+                   ],
+                   "messageSender":
+                   {
+                       "userInGroup":
+                       [
+                           {
+                               "@class": "http.sesam.mobi.learn.LearnGroup",
+                               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                           }
+                       ],
+                       "userNickname":
+                       {
+                           "value": "elasius",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "elasius@gmx.net",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userGender":
+                       {
+                           "uri": "http://sesam.mobi/user#female"
+                       },
+                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                   },
+                   "messageState":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/message#sentMessage"
+                       }
+                   ],
+                   "sesamContentHTML":
+                   {
+                       "value": "Hallo"
+                   },
+                   "sesamCreated":
+                   {
+                       "value": "2014-09-30T09:18:34",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                   },
+                   "uri": "http://sesam.mobi/data/user#msg92ded8b9-9a57-4ea6-8066-1149b8261f00"
+               }
+            }
+
+## get all personal messages [/messages]
+### [GET]
+
++ Response 200 (application/json)
+    + Body
+        
+        
+
+            {
+               "messages":
+               [
+                   {
+                       "messageReceiver":
+                       [
+                           {
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           }
+                       ],
+                       "messageSender":
+                       {
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                       },
+                       "messageState":
+                       [
+                           {
+                               "uri": "http://sesam.mobi/message#sentMessage"
+                           }
+                       ],
+                       "sesamContentHTML":
+                       {
+                           "value": "Hallo",
+                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                       },
+                       "sesamCreated":
+                       {
+                           "value": "2014-09-30T09:15:50",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Message"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#msgc48fb333-613c-4b8c-bfe9-7ac73592cceb"
+                   },
+                   {
+                       "messageReceiver":
+                       [
+                           {
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           }
+                       ],
+                       "messageSender":
+                       {
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                       },
+                       "messageState":
+                       [
+                           {
+                               "uri": "http://sesam.mobi/message#sentMessage"
+                           }
+                       ],
+                       "userForGroup":
+                       {
+                           "@class": "http.sesam.mobi.learn.LearnGroup",
+                           "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                       },
+                       "sesamContentHTML":
+                       {
+                           "value": "Come in and feel good!",
+                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                       },
+                       "sesamCreated":
+                       {
+                           "value": "2014-09-02T09:27:42",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "sesamLastModified":
+                       {
+                           "value": "2014-09-02T09:27:42",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Invitation"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Message"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#invite9b9de1e4-759f-4d99-af73-e00c04b89d76"
+                   },
+                   {
+                       "messageReceiver":
+                       [
+                           {
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           }
+                       ],
+                       "messageSender":
+                       {
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                       },
+                       "messageState":
+                       [
+                           {
+                               "uri": "http://sesam.mobi/message#sentMessage"
+                           }
+                       ],
+                       "sesamContentHTML":
+                       {
+                           "value": "Hallo",
+                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                       },
+                       "sesamCreated":
+                       {
+                           "value": "2014-09-30T09:18:34",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Message"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#msg92ded8b9-9a57-4ea6-8066-1149b8261f00"
+                   },
+                   {
+                       "messageReceiver":
+                       [
+                           {
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           }
+                       ],
+                       "messageSender":
+                       {
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                       },
+                       "messageState":
+                       [
+                           {
+                               "uri": "http://sesam.mobi/message#sentMessage"
+                           }
+                       ],
+                       "userForGroup":
+                       {
+                           "@class": "http.sesam.mobi.learn.LearnGroup",
+                           "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                       },
+                       "sesamContentHTML":
+                       {
+                           "value": "Come in and feel good!",
+                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                       },
+                       "sesamCreated":
+                       {
+                           "value": "2014-09-26T01:43:30",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "sesamLastModified":
+                       {
+                           "value": "2014-09-26T01:43:30",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Message"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Invitation"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#inviteab44422a-0059-40df-b178-b6f46b17d4cb"
+                   },
+                   {
+                       "messageSender":
+                       {
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                       },
+                       "messageState":
+                       [
+                           {
+                               "uri": "http://sesam.mobi/message#sentMessage"
+                           }
+                       ],
+                       "sesamContentHTML":
+                       {
+                           "value": "Hallo",
+                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                       },
+                       "sesamCreated":
+                       {
+                           "value": "2014-09-30T09:10:51",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Message"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#msg16cfd911-c13d-4f77-b2d7-0ca59055176f"
+                   }
+               ]
+            }
+
+## get all group messages [/messages/group?uri={uri}&limit={limit}&offset={offset}]
+### [GET]
+
++ Response 200 (application/json)
+    + Body 
+    
+            {
+               "message":
+               {
+                   "userForGroup":
+                   
+                       {
+                           
+                           "uri": "http://sesam.mobi/data/user#groupf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                       }
+                   
+                   "messageSender":
+                   {
+                       "userInGroup":
+                       [
+                           {
+                               "@class": "http.sesam.mobi.learn.LearnGroup",
+                               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                           }
+                       ],
+                       "userNickname":
+                       {
+                           "value": "elasius",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "elasius@gmx.net",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userGender":
+                       {
+                           "uri": "http://sesam.mobi/user#female"
+                       },
+                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                   },
+                   "messageState":
+                   [
+                       {
+                           "uri": "http://sesam.mobi/message#sentMessage"
+                       }
+                   ],
+                   "sesamContentHTML":
+                   {
+                       "value": "Hallo"
+                   },
+                   "sesamCreated":
+                   {
+                       "value": "2014-09-30T09:18:34",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                   },
+                   "uri": "http://sesam.mobi/data/user#msg92ded8b9-9a57-4ea6-8066-1149b8261f00"
+               }
+            }
+
+
+
+
+
+
 # group Usergroups
 
 ## EmptyGroup [/is/there/anotherway/to/declare/resource/models?]

@@ -5726,8 +5726,14 @@ Sends a message to a list of receivers or to a specific group.
                }
             }
 
-## get all personal messages [/messages]
-### [GET]
+## get all personal messages [/messages?offset={offset}&limit={limit}&messageState={messageState}]
+
++ Parameters
+    + offset (optional, Integer, `5`)...That value specifies the result offset. I.e. given an offset of n the answer will not contain the first n results. 
+    + limit (optional, Integer, `10`)...That value specifies the result count. I.e. given a limit of n the answer will contain the next n results starting from the offset-value. 
+    + messageState (optional, String, `newMessage`)...This parameter can be used to filter the results after their states. Without specifying this value all personal messages (new, read, sent, deleted,  answered) will be returned. Possible Values: `newMessage`, `readMessage`, `sentMessage`, `answeredMessage`, `deletedMessage`
+
+### retrieve the personal messages [GET]
 
 + Response 200 (application/json)
     + Body
@@ -6200,6 +6206,146 @@ Returns a list of all messages that have been posted as shared group message.
                    }
                ]
             }
+
+## edit message state [/messages/state]
+
+### set new states to message [POST]
+
+Gives the possibilbity to set a new personal message state. This method requires the message that is to change (no distinction between personal message or group message) and the list of states that are to set. This method sets the states at the correct place.
+
+#### minimum properties
+ + message
+   + uri
+   
+ + messageStates
+   + List of new States with uri
+
+#### Possible States
+
+* http://sesam.mobi/message#newMessage
+* http://sesam.mobi/message#readMessage
+* http://sesam.mobi/message#deletedMessage
+* http://sesam.mobi/message#sentMessage
+* http://sesam.mobi/message#answeredMessage
+
++ Request (application/json)
+
+        {
+            "messageStates":
+            [
+                {
+                    "uri":"http://sesam.mobi/message#deletedMessage"
+                }
+            ],
+            "message":
+            {
+                "uri":"http://sesam.mobi/data/user#msg928a48bf-1dab-4091-a5da-eacff0c0d679"
+            }
+        }
++ Response 200 (application/json)
+    + Body
+    
+            {
+               "message":
+               {
+                   "messageIndividualState":
+                   [
+                       {
+                           "messageState":
+                           [
+                               {
+                                   "uri": "http://sesam.mobi/message#deletedMessage"
+                               }
+                           ],
+                           "messageForUser":
+                           [
+                               {
+                                   "userInGroup":
+                                   [
+                                       {
+                                           "@class": "http.sesam.mobi.learn.LearnGroup",
+                                           "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                                       }
+                                   ],
+                                   "userNickname":
+                                   {
+                                       "value": "elasius",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userEmail":
+                                   {
+                                       "value": "elasius@gmx.net",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userGender":
+                                   {
+                                       "uri": "http://sesam.mobi/user#female"
+                                   },
+                                   "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                               }
+                           ],
+                           "uri": "http://example/update-base/state3400edc6-bc4e-43eb-8fbd-a60ea13769a4"
+                       }
+                   ],
+                   "messageSender":
+                   {
+                       "userInGroup":
+                       [
+                           {
+                               "@class": "http.sesam.mobi.learn.LearnGroup",
+                               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                           }
+                       ],
+                       "userNickname":
+                       {
+                           "value": "elasius",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userEmail":
+                       {
+                           "value": "elasius@gmx.net",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "userGender":
+                       {
+                           "uri": "http://sesam.mobi/user#female"
+                       },
+                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                   },
+                   "userForGroup":
+                   {
+                       "@class": "http.sesam.mobi.learn.LearnGroup",
+                       "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                   },
+                   "sesamContentHTML":
+                   {
+                       "value": "Come in and feel good!",
+                       "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                   },
+                   "sesamCreated":
+                   {
+                       "value": "2014-09-30T12:01:59",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2002/07/owl#Thing"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/message#Message"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#msg928a48bf-1dab-4091-a5da-eacff0c0d679"
+               }
+            }
+
 
 # group Usergroups
 
@@ -6970,7 +7116,6 @@ Returns all invitations addressed to the user. It is to the user, to delete outd
                    }
                ]
             }
-
 
 
 ## accept an invitation [/usergroups/invitation/accept]

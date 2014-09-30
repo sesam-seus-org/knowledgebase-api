@@ -1423,7 +1423,7 @@ The following methods can be used to retrieve some recommendations for the curre
 
 The results will contained those tags that were given at last by any user, independend from the current bookmark and refered content. 
 
-+ Response 200 (application/json)
++ Response 200
         [TaggingInformation][]
 
 ## Retrieve all tags of the refered content-node [/bookmarks/tag/existing/{uri}]
@@ -1433,7 +1433,7 @@ The Result will contain all those tags that have been connected to the content-n
 + Parameter
     + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... uri of the bookmark 
 
-+ Response 200 (application/json)
++ Response 200
         [TaggingInformation][]
 
 + Response 404 (text/plain) 
@@ -1451,7 +1451,7 @@ Starting with the existing tagging informations from the bookmark itself and the
   + uri (required, URL, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fbookmarks%230cc67c07-d5d0-4950-acde-0a0f2e7aa10b`) ... encoded URI of ContentResource
 
 
-+ Response 200 (application/json)
++ Response 200
         [TaggingInformation][]
 
 + Response 404 (text/plain) 
@@ -3278,8 +3278,6 @@ Returns a list of elements and a list of connections occuring in this path. The 
             }
 
 
-+ Parameter 
-  + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Flearn%23path4b50ac16-52b4-45bd-a2a5-414a1d33f581`) ... uri of an existing, valid and non-empty path. For ensuring those properties check for "learnIsPublished". 
 
 + Response 400
 
@@ -4205,7 +4203,7 @@ Returns the concept cloud for the given Concept.
     
 # group nutrition layer
 
-## get the food mapping for the given website [/mapper/food/]
+## get the food mapping for the given website [/mapper/food/{url}]
 
 This Endpoint provides the basic functionality for the concept layer. It calculates a list of word(-to-food)- mappings. 
 
@@ -4214,6 +4212,7 @@ This Endpoint provides the basic functionality for the concept layer. It calcula
 A Word Mapping contains is a node, with two outgoing edges:
 
     * contentWord ... defines the key word. 
+    
     * contentMapsTo ... gives the freebase-food-URI that is matched by the given word. It can be expanded via the freebase/explore/food - endpoint.
 
 + Parameter
@@ -5272,7 +5271,7 @@ It is only allowed to change the visibility rules.
 
 for manipulating a single property use `/user/settings/property`
 
-+ request (application/json) 
++ request
         
     [SettingsProfile][]
 
@@ -6084,69 +6083,141 @@ Sends a message to a list of receivers or to a specific group.
             }
 
 ## get all group messages [/messages/group?uri={uri}&limit={limit}&offset={offset}]
-### [GET]
+
+Returns a list of all messages that have been posted as shared group message. 
+
++ Parameters
+    + uri (required, URI (URL-encoded), `http%3A%2F%2Fsesam.mobi%2Fdata%2Fuser%23gr5fb0db3a-6edf-49d1-97de-662e97acbe67`)...URI of a group the user is a member of. 
+    + offset (optional, Integer, `5`)...That value specifies the result offset. I.e. given an offset of n the answer will not contain the first n results. 
+    + limit (optional, Integer, `10`)...That value specifies the result count. I.e. given a limit of n the answer will contain the next n results starting from the offset-value. 
+    
+### retreive group messages [GET]
+
+
 
 + Response 200 (application/json)
     + Body 
     
-            {
-               "message":
-               {
-                   "userForGroup":
-                   
-                       {
-                           
-                           "uri": "http://sesam.mobi/data/user#groupf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
-                       }
-                   
-                   "messageSender":
+             {
+               "messages":
+               [
                    {
-                       "userInGroup":
+                       "messageIndividualState":
                        [
                            {
-                               "@class": "http.sesam.mobi.learn.LearnGroup",
-                               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                               "messageState":
+                               [
+                                   {
+                                       "uri": "http://sesam.mobi/message#newMessage"
+                                   }
+                               ],
+                               "messageForUser":
+                               [
+                                   {
+                                       "userInGroup":
+                                       [
+                                           {
+                                               "@class": "http.sesam.mobi.learn.LearnGroup",
+                                               "userHasMember":
+                                               [
+                                                   {
+                                                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                                                   }
+                                               ],
+                                               "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                                           }
+                                       ],
+                                       "userNickname":
+                                       {
+                                           "value": "elasius",
+                                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                       },
+                                       "userEmail":
+                                       {
+                                           "value": "elasius@gmx.net",
+                                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                       },
+                                       "userGender":
+                                       {
+                                           "uri": "http://sesam.mobi/user#female"
+                                       },
+                                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                                   }
+                               ],
+                               "uri": "http://example/update-base/state3400edc6-bc4e-43eb-8fbd-a60ea13769a4"
                            }
                        ],
-                       "userNickname":
+                       "messageSender":
                        {
-                           "value": "elasius",
-                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           "userInGroup":
+                           [
+                               {
+                                   "@class": "http.sesam.mobi.learn.LearnGroup",
+                                   "userHasMember":
+                                   [
+                                       {
+                                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                                       }
+                                   ],
+                                   "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
+                               }
+                           ],
+                           "userNickname":
+                           {
+                               "value": "elasius",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userEmail":
+                           {
+                               "value": "elasius@gmx.net",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "userGender":
+                           {
+                               "uri": "http://sesam.mobi/user#female"
+                           },
+                           "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
                        },
-                       "userEmail":
+                       "userForGroup":
                        {
-                           "value": "elasius@gmx.net",
-                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           "@class": "http.sesam.mobi.learn.LearnGroup",
+                           "userHasMember":
+                           [
+                               {
+                                   "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/user#gr5fb0db3a-6edf-49d1-97de-662e97acbe67"
                        },
-                       "userGender":
+                       "sesamContentHTML":
                        {
-                           "uri": "http://sesam.mobi/user#female"
+                           "value": "Come in and feel good!",
+                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
                        },
-                       "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
-                   },
-                   "messageState":
-                   [
+                       "sesamCreated":
                        {
-                           "uri": "http://sesam.mobi/message#sentMessage"
-                       }
-                   ],
-                   "sesamContentHTML":
-                   {
-                       "value": "Hallo"
-                   },
-                   "sesamCreated":
-                   {
-                       "value": "2014-09-30T09:18:34",
-                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
-                   },
-                   "uri": "http://sesam.mobi/data/user#msg92ded8b9-9a57-4ea6-8066-1149b8261f00"
-               }
+                           "value": "2014-09-30T12:01:59",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2002/07/owl#Thing"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/message#Message"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#msg928a48bf-1dab-4091-a5da-eacff0c0d679"
+                   }
+               ]
             }
-
-
-
-
-
 
 # group Usergroups
 
@@ -6441,11 +6512,9 @@ Returns all groups found by the given input text interpreted as groupname. If gr
 
 The members of each group are only visible to users that are also member of those groups. The owner will be visible to everyone. 
 
-+ response 200
++ response 200 (application/json)
 
-    + body (application/json)
-    
-    
+    + Body
 
             {
                "userGroups":

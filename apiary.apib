@@ -3672,7 +3672,9 @@ Users can recommend Content Resources by Aspects.
                         }
                     ],
                     "contentRecommendedByUser": {
-                        "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                        "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8",
+                        "userNickname":{"value":"MyNickname"},
+                        "userFirstName":{"value":"My Firstname"}
                     },
                     "sesamCreated": {
                         "value": "2014-07-28T01:11:39",
@@ -3724,7 +3726,7 @@ Users can recommend Content Resources by Aspects.
                                 "uri": "http://sesam.mobi/content#understandable"
                             },
                             "sesamSize": {
-                                "value": 1,
+                                "value": 2,
                                 "dataTypeURI": "http://www.w3.org/2001/XMLSchema#integer"
                             },
                             "rdfType": [
@@ -3851,7 +3853,9 @@ Users can recommend Content Resources by Aspects.
                             }
                         ],
                         "contentRecommendedByUser": {
-                            "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                            "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8",
+                            "userNickname":{"value":"MyNickname"},
+                            "userFirstName":{"value":"My Firstname"}
                         },
                         "sesamCreated": {
                             "value": "2014-07-27T10:42:28",
@@ -3881,6 +3885,80 @@ Users can recommend Content Resources by Aspects.
                             }
                         ],
                         "uri": "http://sesam.mobi/data/content#c8943d30-b11c-4ba9-9fac-8227822cc965"
+                    },
+                    {
+                        "contentHasAspects": [
+                            {
+                                "rdfType": [
+                                    {
+                                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                        "uri": "http://sesam.mobi/content#RecommendationAspect"
+                                    }
+                                ],
+                                "rdfsLabel": [
+                                    {
+                                        "value": "Well Understandable",
+                                        "language": "en"
+                                    },
+                                    {
+                                        "value": "Gut Verständlich",
+                                        "language": "de"
+                                    }
+                                ],
+                                "uri": "http://sesam.mobi/content#understandable"
+                            },
+                            {
+                                "rdfType": [
+                                    {
+                                        "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                        "uri": "http://sesam.mobi/content#RecommendationAspect"
+                                    }
+                                ],
+                                "rdfsLabel": [
+                                    {
+                                        "value": "Fakten sind Belegt",
+                                        "language": "de"
+                                    },
+                                    {
+                                        "value": "Facts are Proven",
+                                        "language": "en"
+                                    }
+                                ],
+                                "uri": "http://sesam.mobi/content#factsProven"
+                            }
+                        ],
+                        "contentRecommendedByUser": {
+                            "uri": "http://sesam.mobi/data/user#otherUserURI",
+                            "userNickname":{"value":"OtherNickname"},
+                        },
+                        "sesamCreated": {
+                            "value": "2014-07-27T10:42:28",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-07-27T10:42:28",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "rdfType": [
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://www.w3.org/2002/07/owl#Thing"
+                            },
+                            {
+                                "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                "uri": "http://sesam.mobi/content#Recommendation"
+                            }
+                        ],
+                        "rdfsComment": [
+                            {
+                                "value": "wirklich toll"
+                            }
+                        ],
+                        "uri": "http://sesam.mobi/data/content#c8943d30-b11c-4ba9-9fac-8227822cc966"
                     }
                 ]
             }

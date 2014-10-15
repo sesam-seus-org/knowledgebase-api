@@ -10330,12 +10330,12 @@ The names of the fields are declared in the first line.
 * User .... The user nickname if known or "unkown"
 * Client .... Content of http-header User-Agent, can be used to identify mobile or desktop usage
 * Resource .... Requested resource for example /user/search
-* Activity .... Human Readable translation for PUT, POST, GET
+* Activity .... Human Readable translation for PUT, GET, POST, DELETE -> Create, Read, Update, Delete
 * Query .... The query string after ? if there was one
-* Payload .... The deliverd entity AnyContentAsEmpt
+* Payload .... The body of the rquest, AnyContentAsEmpt if is empty
 
 + Parameter
-    + nickname ... the nickname of the user (e.g. /activitylog/backend/Hans)
+    + nickname ... the nickname of the user (e.g. Hans)
     
 + request 
     + Headers 

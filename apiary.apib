@@ -21,7 +21,6 @@ For understanding the structure of the JSON-Objects it can be helpful to underst
  
 
 # Group Error Codes 
-
 #### depricated
 
 The usage of the error-codes is not necessary any more. 
@@ -10315,8 +10314,8 @@ The names of the fields are declared in the first line.
 + response 404
 
 
-## Get users log file [/activitylog/users/{nickname}]
-Gets the file for each request of the specific user
+## Get users backend log file [/activitylog/backend/{nickname}]
+Gets the backend-log for each request of the specific user
 ### users[GET]
 Use the accept header to get the result as JSON. Otherwise the result will be returned as csv file.
 
@@ -10336,7 +10335,7 @@ The names of the fields are declared in the first line.
 * Payload .... The deliverd entity AnyContentAsEmpt
 
 + Parameter
-    + nickname ... the nickname of the user (e.g. /activitylog/users/Hans)
+    + nickname ... the nickname of the user (e.g. /activitylog/backend/Hans)
     
 + request 
     + Headers 
@@ -10345,17 +10344,29 @@ The names of the fields are declared in the first line.
 
 + response 200 (application/json)
     + body
-    
-            {
-                "content":"Start;End;User;Client;Resource;Activity;Query;Payload;
-                2014-09-03T10:37:31.172+0200;2014-09-03T10:37:31.910+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
-                2014-09-03T10:37:31.990+0200;2014-09-03T10:37:32.319+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Read;;AnyContentAsEmpt;
-                2014-09-03T10:38:44.453+0200;2014-09-03T10:38:45.463+0200;elasius;\"LernAPP/Version 1.0.0\";/user/search;Read;nickname=el;AnyContentAsEmpt;
-                2014-09-03T10:38:45.551+0200;2014-09-03T10:38:46.076+0200;elasius;\"LernAPP/Version 1.0.0\";/user/search;Read;nickname=el;AnyContentAsEmpt;
-                2014-09-03T10:39:12.929+0200;2014-09-03T10:39:17.442+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Create;;{\"notebooks\":[{\"sesamHasTitle\":{\"value\":\"hallo Welt\"}}]};
-                2014-09-03T10:39:12.924+0200;2014-09-03T10:39:17.452+0200;elasius;\"LernAPP/Version 1.0.0\";/notebooks;Create;;{\"notebooks\":[{\"sesamHasTitle\":{\"value\":\"hallo Welt\"}}]};
-                "
-            }
+
+            [
+                {
+                    "Start": "2014-10-09T18:07:00.286+0200",
+                    "End": "2014-10-09T18:07:16.812+0200",
+                    "User": "Hans",
+                    "Client": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.101 Safari/537.36\"",
+                    "Resource": "/user",
+                    "Activity": "Read",
+                    "Query": "",
+                    "Payload": "AnyContentAsEmpt"
+                },
+                {
+                    "Start": "2014-10-09T18:12:03.595+0200",
+                    "End": "2014-10-09T18:12:03.644+0200",
+                    "User": "Hans",
+                    "Client": "\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.101 Safari/537.36\"",
+                    "Resource": "/activitylog/uploadbrowserlog",
+                    "Activity": "Update",
+                    "Query": "",
+                    "Payload": "/var/folders/ng/dmm7lpy5303ckwyj03g5wk8c0000gn/T/requestBody5947714771665357841asTemporaryFile"
+                }
+            ]
  
 + response 404
 

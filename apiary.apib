@@ -11402,8 +11402,10 @@ get all Flags for a Note
 #group Post-Its
 
 ## Add and Update a Post-It [/postits]
+Post-Its could not be updated, sorry. As a workaround try to delete and and create a new one.
+Consider that this changes are not visible to users you shared the original Post-It.
 
-### Add a new PostIt [PUT]
+### Add a new Post-It [PUT]
 
 + request (application/json)
 
@@ -11482,113 +11484,21 @@ get all Flags for a Note
             }
 
 
+### Update a Post-It[POST]
+Post-Its could not be updated, sorry. As a workaround try to delete and and create a new one.
+Consider that this changes are not visible to users you shared the original Post-It.
++ response  501 
 
 
-### Update an existing PostIt [POST]
-
-+ request (application/json)
-
-        {
-           "postits":
-           [
-               {
-                   "postitsForContent":
-                   {
-                       "@class": "http.sesam.mobi.content.Website",
-                       "sesamHasTitle":
-                       {
-                           "value": "Google",
-                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
-                       },
-                       "uri": "http://www.google.de"
-                   },
-                   "sesamContentHTML":
-                   {
-                       "value": "neuer Text",
-                       "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-                   },
-                   "sesamCreated":
-                   {
-                       "value": "2014-11-04T15:27:45",
-                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
-                   },
-                   "sesamHasTitle":
-                   {
-                       "value": "neuer Titel",
-                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
-                   },
-                    "messageReceiver":
-                    [
-                        {
-                            "uri":"http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
-                        }
-                    ]
-                   "uri": "http://sesam.mobi/data/post-its#fbaa0ec7-4bde-4c67-9d57-f67822a170d8"
-               }
-           ]
-        }
-
-+ response 200 (application/json)
-    + body
-    
-            {
-               "postits":
-               [
-                   {
-                       "postitsForContent":
-                       {
-                           "@class": "http.sesam.mobi.content.Website",
-                           "sesamHasTitle":
-                           {
-                               "value": "Google",
-                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
-                           },
-                           "uri": "http://www.google.de"
-                       },
-                       "sesamContentHTML":
-                       {
-                           "value": "neuer Text",
-                           "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-                       },
-                       "sesamCreated":
-                       {
-                           "value": "2014-11-04T15:27:45",
-                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
-                       },
-                       "sesamHasTitle":
-                       {
-                           "value": "neuer Titel",
-                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
-                       },
-                       "sesamLastModified":
-                       {
-                           "value": "2014-11-04T15:31:21",
-                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
-                       },
-                        "messageSender": {
-                            "userEmail": {
-                                "value": "stefan@test.de",
-                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
-                            },
-                            "userNickname": {
-                                "value": "stefan",
-                                "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
-                            },
-                            "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
-                        },
-                       "uri": "http://sesam.mobi/data/post-its#fbaa0ec7-4bde-4c67-9d57-f67822a170d8"
-                   }
-               ]
-            }
-        
-
-## get PostIts from Website [/postits/{contentURL}]
+## Gets users Post-Its for a resource [/postits/{contentURL}?offset={offset}&limit={limit}]
 
 + Parameter
     + contentURL (required, URI, `http%3A%2F%2Fwww.google.de`) ... uri of the content resource 
+    + offset (optional, Long, `0`)...That value specifies the result offset.
+    + limit (optional, Long, `10`)...That value specifies the result count.
 
-### Get All Postits from Website [GET]
-
+### Gets users Post-Its for a resource [GET]
+Gets all Post-Its connected to the user and a given resource.
 + response 200 (application/json)
     + body
     
@@ -11672,12 +11582,11 @@ get all Flags for a Note
             }
 
 
-
-## delete a single PostIt [/postits/{postItURI}]
-
+## Deletes a single Post-It [/postits/{postItURI}]
+This deletes a Post-It from a user. This deletes not the Post-It at the user you shared it.
 + Parameter
     + postItURI (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fpost-its%23fbaa0ec7-4bde-4c67-9d57-f67822a170d8`) ... uri of the Post-It to delete 
 
-### delete a postit [DELETE]
+### Deletes a postit [DELETE]
 
 + response 204

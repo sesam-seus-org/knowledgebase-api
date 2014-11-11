@@ -11590,3 +11590,692 @@ This deletes a Post-It from a user. This deletes not the Post-It at the user you
 ### Deletes a postit [DELETE]
 
 + response 204
+
+
+
+# Group Contact List
+
+## create, update and get contact lists [/user/contactlist]
+
+### Create a new Contact List [PUT]
+
++ request (application/json)
+
+        {
+            "contactList":
+            {
+                "sesamHasTitle":
+                {
+                    "value":"test"
+                }, 
+                "rdfsComment":
+                [
+                    {
+                        "value":"eine testliste"
+                    }
+                ]
+            }
+        }
+        
++ response 201 (application/json)
+    + body 
+            
+            {
+               "contactList":
+               {
+                   "sesamCreated":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "test"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#datetime"
+                   },
+                   "rdfsComment":
+                   [
+                       {
+                           "value": "eine testliste"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+               }
+            }
+
+### Update a contact list [POST]
+
+ Pay Attention by commiting a contact list the contacts referenced by this list become synchronized by the knowledge base. Make sure to commit all contacts, that need to be in this list after this operation. 
+
+ Update Operations: 
+ > Change literal values of Contact Lists
+ 
+ > Insert existing Contacts from another list 
+ > (Contacts can be shared over multiple lists)
+ 
+ > Delete Contacts from list 
+ 
+ > Change literal values of Contancts 
+
+
+
++ request (application/json)
+
+        {
+           "contactList":
+           {
+               "userContact":
+               [
+                   {
+                       "userContactUser":
+                       {
+                         "uri" : "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                       },
+                       "userAlias":
+                       {
+                           "value": "Ein neuer Name",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                      "uri": "http://sesam.mobi/data/user#contact6736e85e-91ed-48d9-a0c9-0e147a566b93"
+                   }
+               ],
+               "sesamHasTitle":
+               {
+                   "value": "Ein richtiger Name"
+               },
+               "rdfsComment":
+               [
+                   {
+                       "value": "In dieser Liste wird ein Kontakt entfernt."
+                   }
+               ],
+              "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+           }
+        }
+
+
+
++ response 200 (application/json)
+    + body 
+  
+            {
+               "contactList":
+               {
+                   "userContact":
+                   [
+                       {
+                           "userContactUser":
+                           {
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           },
+                           "userAlias":
+                           {
+                               "value": "Ein neuer Name",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "uri": "http://sesam.mobi/data/user#contact6736e85e-91ed-48d9-a0c9-0e147a566b93"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Ein richtiger Name"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "rdfsComment":
+                   [
+                       {
+                           "value": "In dieser Liste wird ein Kontakt entfernt."
+                       }
+                   ],
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/user#ContactList"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+               }
+            }
+
+
+### Retrieve all personal contactlists [GET]
+
++ response 200 (application/json)
+    + body 
+    
+            {
+               "contactLists":
+               [
+                   {
+                       "sesamCreated":
+                       {
+                           "value": "2014-11-11T17:42:56",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "sesamHasTitle":
+                       {
+                           "value": "test",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "sesamLastModified":
+                       {
+                           "value": "2014-11-11T17:42:56",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/user#ContactList"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#cl664ed494-0687-43e7-8127-8f4b38a710f0"
+                   },
+                   {
+                       "userContact":
+                       [
+                           {
+                               "userContactUser":
+                               {
+                                   "userEmail":
+                                   {
+                                       "value": "uniqueID@webserver.de",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userBiography":
+                                   {
+                                       "value": "bla bla bla",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userFirstname":
+                                   {
+                                       "value": "uniqueIDFirstName",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userLastname":
+                                   {
+                                       "value": "uniqueIDLastName",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userNickname":
+                                   {
+                                       "value": "uniqueID",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                               },
+                               "userAlias":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#Contact"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#contact6736e85e-91ed-48d9-a0c9-0e147a566b93"
+                           },
+                           {
+                               "userContactUser":
+                               {
+                                   "userEmail":
+                                   {
+                                       "value": "uniqueID@webserver.de",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userBiography":
+                                   {
+                                       "value": "bla bla bla",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userFirstname":
+                                   {
+                                       "value": "uniqueIDFirstName",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userLastname":
+                                   {
+                                       "value": "uniqueIDLastName",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "userNickname":
+                                   {
+                                       "value": "uniqueID",
+                                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                                   },
+                                   "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                               },
+                               "userAlias":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "rdfType":
+                               [
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                                   },
+                                   {
+                                       "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                       "uri": "http://sesam.mobi/user#Contact"
+                                   }
+                               ],
+                               "uri": "http://sesam.mobi/data/user#contact98607123-7736-42fd-84b7-6bc97595e3f1"
+                           }
+                       ],
+                       "sesamCreated":
+                       {
+                           "value": "2014-11-11T17:45:02",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "sesamHasTitle":
+                       {
+                           "value": "Ein richtiger Name",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "sesamLastModified":
+                       {
+                           "value": "2014-11-11T17:45:02",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfsComment":
+                       [
+                           {
+                               "value": "eine testliste"
+                           }
+                       ],
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/user#ContactList"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+                   },
+                   {
+                       "sesamCreated":
+                       {
+                           "value": "2014-11-11T17:44:12",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "sesamHasTitle":
+                       {
+                           "value": "test",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                       },
+                       "sesamLastModified":
+                       {
+                           "value": "2014-11-11T17:44:12",
+                           "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                       },
+                       "rdfType":
+                       [
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                           },
+                           {
+                               "@class": "http.www.w3.org200001.rdf_schema.Class",
+                               "uri": "http://sesam.mobi/user#ContactList"
+                           }
+                       ],
+                       "uri": "http://sesam.mobi/data/user#cle4a48423-3e41-45f0-9a12-fafa377fe1f8"
+                   }
+               ]
+            }
+
+
+## Get a single contactlist [/user/contactlist/{uri}]
+
++ Parameter
+    + uri (required, URI, `http%3A%2F%2Fsesam.mobi%2Fdata%2Fuser%23cl8c5699e4-063e-4eb6-901c-d7127637f3ba`) ... uri of the contactlist to explore 
+
+### Retrieve a single contact list [GET]
+
++ response 200 (application/json)
+    + body 
+
+            {
+               "contactList":
+               {
+                   "userContact":
+                   [
+                       {
+                           "userContactUser":
+                           {
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           },
+                           "userAlias":
+                           {
+                               "value": "uniqueID",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/user#Contact"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/user#contact6736e85e-91ed-48d9-a0c9-0e147a566b93"
+                       },
+                       {
+                           "userContactUser":
+                           {
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           },
+                           "userAlias":
+                           {
+                               "value": "uniqueID",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/user#Contact"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/user#contact98607123-7736-42fd-84b7-6bc97595e3f1"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Ein richtiger Name",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "rdfsComment":
+                   [
+                       {
+                           "value": "eine testliste"
+                       }
+                   ],
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/user#ContactList"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+               }
+            }
+
+
+
+
+
+## Make a new Contact from user and add this to a contact list [/user/contact]
+
+###Make a new Contact from user and add this to a contact list [PUT]
+
++ request (application/json)
+
+        {
+            "user":
+            {
+                "uri":"http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+            },
+            "contactList":
+            {
+                "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+            }
+        }
+
++ response 201 (application/json)
+    + body 
+    
+            {
+               "contactList":
+               {
+                   "userContact":
+                   [
+                       {
+                           "userContactUser":
+                           {
+                               "userEmail":
+                               {
+                                   "value": "uniqueID@webserver.de",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userBiography":
+                               {
+                                   "value": "bla bla bla",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userFirstname":
+                               {
+                                   "value": "uniqueIDFirstName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userLastname":
+                               {
+                                   "value": "uniqueIDLastName",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "userNickname":
+                               {
+                                   "value": "uniqueID",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#usrf3d80a3b-3d0c-450f-a0fe-23881dc6f01e"
+                           },
+                           "userAlias":
+                           {
+                               "value": "uniqueID",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/user#Contact"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/user#contact6736e85e-91ed-48d9-a0c9-0e147a566b93"
+                       },
+                       {
+                           "userContactUser":
+                           {
+                               "userNickname":
+                               {
+                                   "value": "elasius",
+                                   "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                               },
+                               "uri": "http://sesam.mobi/data/user#ed14dc49-c46f-40c8-b093-f3e80203c212"
+                           },
+                           "userAlias":
+                           {
+                               "value": "Mein Freund",
+                               "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                           },
+                           "rdfType":
+                           [
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://sesam.mobi/user#Contact"
+                               },
+                               {
+                                   "@class": "http.www.w3.org200001.rdf_schema.Class",
+                                   "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                               }
+                           ],
+                           "uri": "http://sesam.mobi/data/user#contact98607123-7736-42fd-84b7-6bc97595e3f1"
+                       }
+                   ],
+                   "sesamCreated":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "sesamHasTitle":
+                   {
+                       "value": "Ein richtiger Name",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                   },
+                   "sesamLastModified":
+                   {
+                       "value": "2014-11-11T17:45:02",
+                       "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                   },
+                   "rdfsComment":
+                   [
+                       {
+                           "value": "eine testliste"
+                       }
+                   ],
+                   "rdfType":
+                   [
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+                       },
+                       {
+                           "@class": "http.www.w3.org200001.rdf_schema.Class",
+                           "uri": "http://sesam.mobi/user#ContactList"
+                       }
+                   ],
+                   "uri": "http://sesam.mobi/data/user#cl8c5699e4-063e-4eb6-901c-d7127637f3ba"
+               }
+            }
+
+
+
+
+

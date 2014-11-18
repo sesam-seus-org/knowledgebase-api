@@ -12284,7 +12284,6 @@ The idea is to search by a given string and getting back simple validated object
 Later, the user could do a specific search for one type. In this case the type and offset must be defined. Types means the root nodes 
 of the json objects, like users, leanringPaths or contentResources. Contact Torsten for any questions.
 
-
 ### Global Search [GET]
 + Parameter
     + query  (required, String, `Omega-3`) ... The phrase you want to search for.
@@ -12296,6 +12295,80 @@ of the json objects, like users, leanringPaths or contentResources. Contact Tors
 
 + request (application/json)
 
-+ response 200
++ response 200 (application/json)
+    + body
 
-
+            {
+                "users": [],
+                "learningPaths": [
+                    {
+                        "learnHasIntroduction": {
+                            "learnHasDescription": {
+                                "sesamContentHTML": {
+                                    "value": "<p>Einführung: Fette</p>\r\n<p>Überblick Omega-3-Fettsäuren</p>\r\n<p>Wirkungen von Omega-3-Fettsäuren im Körper</p>\r\n<p>Empfehlungen für die Fettzufuhr</p>\r\n<p>Die richtigen Fette und Öle</p>\r\n<p>Exkurs: Blutfettwerte und Cholesterin</p>\r\n<p>Test: Omega-3-Fettsäuren</p>",
+                                    "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                },
+                                "uri": "http://sesam.mobi/data/learn#descca96531c-b9a0-4c08-829a-946c9d5ae9ee"
+                            },
+                            "uri": "http://sesam.mobi/data/learn#introb32deaa2-4b71-4dda-9623-75b6e7c7d639"
+                        },
+                        "sesamHasTitle": {
+                            "value": "Omega-3-Fettsäuren",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "uri": "http://sesam.mobi/data/learn#pathd86c7b84-a2e5-4d1b-b905-00116c884e4f"
+                    },
+                    {
+                        "learnHasIntroduction": {
+                            "learnHasDescription": {
+                                "sesamContentHTML": {
+                                    "value": "<p>\r\nHerzlich willkommen zum Schulungslernpfad.<br/>\r\nDieser Lernpfad beschäftigt sich mit dem Thema <b>„Funktionelle Lebensmittel“</b> (engl. „functional food“). \r\n<br/><br/>\r\nDas Thema Funktionelle Lebensmittel dient in diesem Fall als ein Beispielthema. Ziel des Lernpfades ist es, Ihnen nicht nur das Thema näher zu bringen, sondern Sie auch mit den verschiedenen Funktionalitäten der SESAM Informationsumgebung vertraut zu machen.\r\n<br/><br/>\r\nLesen Sie sich die Aufgaben bitte in Ruhe durch und nehmen Sie sich beim Bearbeiten so viel Zeit, wie Sie benötigen. Die Zeitangaben sind nur als Orientierung für Sie gedacht.\r\n<br/><br/>\r\n <b>Viel Spaß beim Beschreiten des Lernpfades wünscht das SESAM-Team!</b>\r\n</p>",
+                                    "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                },
+                                "uri": "http://sesam.mobi/data/learn#desc4208b284-7f8c-4c9b-88ae-3e1fca7975d1"
+                            },
+                            "uri": "http://sesam.mobi/data/learn#intro84f5f3ef-cd4b-4b32-8570-26c0af4a18ff"
+                        },
+                        "sesamHasTitle": {
+                            "value": "Schulungs-Lernpfad",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "uri": "http://sesam.mobi/data/learn#patha41daaa5-fb22-4fea-a565-6d4e5555e5c7"
+                    },
+                    {
+                        "learnHasIntroduction": {
+                            "learnHasDescription": {
+                                "sesamContentHTML": {
+                                    "value": "<p>Herzlich Willkommen zum mobilen Lernpfad mit dem Thema „Funktionelle Lebensmittel“.\r\nNun möchten wir dich mit den verschiedenen Funktionalitäten der <u>mobilen<u/> SESAM-Informationsumgebung vertraut zu machen. \r\n</p>\r\n\r\nViel Spaß beim Beschreiten des Lernpfads wünscht das SESAM-Team!",
+                                    "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                },
+                                "uri": "http://sesam.mobi/data/learn#desc65e7dd99-a342-4180-8b89-8d57057084a0"
+                            },
+                            "uri": "http://sesam.mobi/data/learn#introad2683dc-c617-41f1-b111-38712618f44f"
+                        },
+                        "sesamHasTitle": {
+                            "value": "Schulungslernpfad | mobil I",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "uri": "http://sesam.mobi/data/learn#pathf816121b-700a-4519-9758-7940c518ad4e"
+                    }
+                ],
+                "contentResources": [
+                    {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "sesamHasTitle": {
+                            "value": "Omega-3 Fettsäuren",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "uri": "http://www.zentrum-der-gesundheit.de/omega-3-fettsaeuren.html"
+                    },
+                    {
+                        "@class": "http.sesam.mobi.content.Website",
+                        "sesamHasTitle": {
+                            "value": "Wieviel Omega-3-Fettsäuren braucht der Mensch? | Arbeitskreis Omega-3 e.V.",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#string"
+                        },
+                        "uri": "http://www.ak-omega-3.de/omega-3-fettsaeuren/wieviel-omega-3-fettsaeuren-braucht-der-mensch"
+                    }
+                ]
+            }

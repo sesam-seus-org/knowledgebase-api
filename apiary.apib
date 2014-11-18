@@ -1077,7 +1077,7 @@ Note: It is not possible to edit the "bookmarkContainsBookmark"-property from th
 
 
 # Group Tagging of Bookmarks
-The following methods can be used to retrieve some recommendations for the current bookmark. In addition to the folliwing method the search for concepts can be used for implementing an auto-completion. 
+The following methods can be used to retrieve some recommendations for the current bookmark. In addition to the following method the search for concepts can be used for implementing an auto-completion. 
 
 ## TaggingInformation [/bookmarks/tag/{view}/{uri}]
 
@@ -12276,6 +12276,26 @@ This deletes a Post-It from a user. This deletes not the Post-It at the user you
             }
 
 
+#group Global Search
 
+## Searching by a given string in whole SESAM [/globalsearch{?query,tpe,offset,limit}]
+A very simple reference implementation (HTML and AJAX) could be found at /gs. 
+The idea is to search by a given string and getting back simple validated objects for all types of objects (users, learningsPaths, etc.). 
+Later, the user could do a specific search for one type. In this case the type and offset must be defined. Types means the root nodes 
+of the json objects, like users, leanringPaths or contentResources. Contact Torsten for any questions.
+
+
+### Global Search [GET]
++ Parameter
+    + query  (required, String, `Omega-3`) ... The phrase you want to search for.
+    + tpe   (optional, String, `contentResources`) ... The type of the search. If it's not set the search is executed in all available types (tpe=all). 
+                                                        If you want to do a specific search for one type you have set it. Type is the a root node of the json object
+                                                        like contentResources, learnigPaths, etc.
+    + offset (optional, Int, `0`) ... The offset for every type.
+    + limit  (optional, Int, `3`) ... The limit for every type.
+
++ request (application/json)
+
++ response 200
 
 

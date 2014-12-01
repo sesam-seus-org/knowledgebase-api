@@ -12372,6 +12372,7 @@ of the json objects, like users, leanringPaths or contentResources. Contact Tors
             }
             
 #group File Management
+This endpoint offers a simple endpoint for the management of files for a single user. This includes uploading and deleting files, making directories, getting files and directories and deleting files and directories.
 
 If you want the make operations on the root directory, you must not add "/" at the end. Also exlude the path.
 
@@ -12413,6 +12414,12 @@ If you want the make operations on the root directory, you must not add "/" at t
 ## Makes a directory [/mkdir/{path}]
 ### Delete [DELETE]
 + Parameter
-    + path  (required, String, ``) ... The path of the file or directory you want to delete. Directories are deleted recursively.
+    + path  (required, String, ``) ... The path of the directory in which you want to make a new directory.
 
-+ response 204   
++ request (application/json)
+
+            {
+                "foldername" : "pics"
+            }
+
++ response 201

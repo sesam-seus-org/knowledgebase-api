@@ -12375,9 +12375,30 @@ of the json objects, like users, leanringPaths or contentResources. Contact Tors
 
 ## Uploads files [/upload/{path}]
 
-### Global Search [GET]
+### Upload [GET]
 + Parameter
-    + path  (required, String, ``) ... The path where you want to store the file. Use an empty string for storing it in the root folder (/upload). 
-
+    + path  (required, String, ``) ... The path where you want to store the file. Use an empty string without "/" at the end for storing it in the root folder (/upload). 
 
 + response 200 (application/json)
+
+## Gets or delets files [/files/{path}]
+
+### Get [GET]
++ Parameter
+    + path  (required, String, ``) ... The path of the file or directory. If addressing a directory, you get a json object containing all files and directories of the selected path. 
+
++ response 200 (application/json)
+
+            [
+                [
+                    {
+                        "name": "pics",
+                        "type": "directory"
+                    },
+                    {
+                        "name": "pic.jpg",
+                        "type": "file"
+                    }
+                ]
+            ]
+            

@@ -12373,6 +12373,8 @@ of the json objects, like users, leanringPaths or contentResources. Contact Tors
             
 #group File Management
 
+If you want the make operations on the root directory, you must not add "/" at the end. Also exlude the path.
+
 ## Uploads files [/upload/{path}]
 
 ### Upload [GET]
@@ -12385,7 +12387,7 @@ of the json objects, like users, leanringPaths or contentResources. Contact Tors
 
 ### Get [GET]
 + Parameter
-    + path  (required, String, ``) ... The path of the file or directory. If addressing a directory, you get a json object containing all files and directories of the selected path. 
+    + path  (required, String, ``) ... The path of the file or directory. If addressing a directory, you get a json object containing all files and directories of the selected path. Not existing directories will be created. 
 
 + response 200 (application/json)
 
@@ -12402,3 +12404,15 @@ of the json objects, like users, leanringPaths or contentResources. Contact Tors
                 ]
             ]
             
+### Delete [DELETE]
++ Parameter
+    + path  (required, String, ``) ... The path of the file or directory you want to delete. Directories are deleted recursively.
+
++ response 204
+
+## Makes a directory [/mkdir/{path}]
+### Delete [DELETE]
++ Parameter
+    + path  (required, String, ``) ... The path of the file or directory you want to delete. Directories are deleted recursively.
+
++ response 204   

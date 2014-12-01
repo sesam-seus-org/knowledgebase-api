@@ -12378,11 +12378,11 @@ If you want the make operations on the root directory, you must not add "/" at t
 
 ## Uploads files [/upload/{path}]
 
-### Upload [GET]
+### Upload [POST]
 + Parameter
     + path  (required, String, ``) ... The path where you want to store the file. Use an empty string without "/" at the end for storing it in the root folder (/upload). 
 
-+ response 200 (application/json)
++ response 200 
 
 ## Gets or delets files [/files/{path}]
 
@@ -12412,9 +12412,9 @@ If you want the make operations on the root directory, you must not add "/" at t
 + response 204
 
 ## Makes a directory [/mkdir/{path}]
-### Delete [DELETE]
+### Delete [POST]
 + Parameter
-    + path  (required, String, ``) ... The path of the directory in which you want to make a new directory.
+    + path  (required, String, `pics`) ... The path of the directory in which you want to make a new directory.
 
 + request (application/json)
 

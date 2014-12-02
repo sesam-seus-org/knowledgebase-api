@@ -10759,6 +10759,63 @@ get all Comments for a Comment
                 ]
             }
 
+## get all Comments [/allcomments/{uri}]
+get all Comments (including SubComments) of a ContentResource
+
+### get all Comments [GET]
+
++ Parameter
+  + uri (required, URL, https%3A%2F%2Fwww.bing.com%2F`) ... encoded URI of Comment
+  
++ response 200 (application/json)
+    + Body
+    
+            {
+                "comments": [
+                    {
+                        "commentsHasAnswers": [
+                            {
+                                "commentsAnswerFor": {
+                                    "uri": "http://sesam.mobi/data/content#8e32b142-0288-4487-b975-2d173978f94a"
+                                },
+                                "messageSender": {
+                                    "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                                },
+                                "sesamContentHTML": {
+                                    "value": "Test SubComment",
+                                    "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                                },
+                                "sesamCreated": {
+                                    "value": "2014-12-01T18:53:20",
+                                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                                },
+                                "sesamLastModified": {
+                                    "value": "2014-12-01T18:53:20",
+                                    "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                                },
+                                "uri": "http://sesam.mobi/data/content#8938a8d3-146c-4654-93c7-e65c9f35fb4c"
+                            }
+                        ],
+                        "messageSender": {
+                            "uri": "http://sesam.mobi/data/user#eb235457-ae35-4576-969e-552a517a8bf8"
+                        },
+                        "sesamContentHTML": {
+                            "value": "Test Comment",
+                            "dataTypeURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+                        },
+                        "sesamCreated": {
+                            "value": "2014-12-01T18:52:48",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "sesamLastModified": {
+                            "value": "2014-12-01T18:52:48",
+                            "dataTypeURI": "http://www.w3.org/2001/XMLSchema#dateTime"
+                        },
+                        "uri": "http://sesam.mobi/data/content#8e32b142-0288-4487-b975-2d173978f94a"
+                    }
+                ]
+            }
+
 # group Markers
 
 ## add Marker [/markers]
